@@ -1,0 +1,128 @@
+.loginPage {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 80px;
+    justify-content: space-between;
+    gap: 60px;
+    min-height: 100vh;
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.loginLogo {
+    flex: 1;
+    display: flex;  
+    justify-content:end;
+    margin-top: 60px;
+}
+
+.loginContainer {
+    flex: 1;
+    width: 394px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+.loginHeading {
+    font-family: "Helvetica Neue";
+    font-weight: 600;
+    font-size: clamp(32px, 8vw, 64px);
+    margin-bottom: 20px;
+    color: rgb(255, 255, 255);
+}
+  
+.loginDivider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    width: 384px;
+}
+  
+.loginDivider hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid rgba(63, 63, 70, 1);
+}
+  
+.loginDivider p {
+    color: rgba(113, 113, 122, 1);
+    margin: 0;
+    font-size: 15px;
+}
+  
+.loginInput {
+    width: 100%;
+    width: 394px;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 2px solid rgba(63, 63, 70, 1);
+    border-radius: 5px;
+    padding: 15px 11px;
+    color: white;
+    font-size: 17px;
+    outline: none;
+    height:60px;
+}
+  
+.loginInput::placeholder {
+    color: rgba(113, 113, 122, 1);
+    font-size:15px;
+    font-weight:400;
+}
+  
+.loginInput:focus {
+    border-color: rgb(29, 155, 240);
+    border-width: 2px;
+    padding: 14px 11px;
+}
+  
+
+.byContinuing {
+    color:rgb(109, 109, 111);    
+    font-size: 12px;
+    width: 394px;
+    text-align: center;
+}
+  
+.byContinuing a {
+    color: white;
+    cursor: pointer;
+    font-weight:600;
+}
+
+p {
+    margin:0;
+}
+
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    font-size: 12px;
+    color: rgba(113, 113, 122, 1);
+}
+  
+.footer a {
+    color: rgba(113, 113, 122, 1);
+    text-decoration: none;
+}
+  
+.footer a:hover {
+    text-decoration: underline;
+}
+  
+.footer .dot {
+    color: rgba(113, 113, 122, 1);
+}
