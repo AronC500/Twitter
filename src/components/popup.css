@@ -1,0 +1,99 @@
+.overlaycontainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+  
+.overlay {
+    position: relative;
+    background-color: rgb(20, 20, 20);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 700px;
+    padding: 40px 130px 32px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+
+
+
+.xlogo {
+    align-self: center;
+    margin-bottom: 8px;
+    height:50px;
+    width:45px;
+}
+  
+.heading {
+    font-family: "Helvetica Neue";
+    font-weight: 800;
+    font-size: 31px;
+    color: white;
+    margin: 0;
+    width: 394px;
+}
+  
+.inputField {
+    position: relative;
+    width: 394px;
+    height:100%;
+    border: 2px solid rgba(63, 63, 70, 1);
+    border-radius: 5px;
+    padding: 8px 12px 6px;
+    box-sizing: border-box;
+    background-color: black;
+}
+  
+.inputField:focus-within {
+    border-color: rgb(29, 155, 240);
+    border-width: 2px;
+    padding: 8px 12px 6px;
+}
+.inputField label {
+    display: block;
+    font-size: 13px;
+    color: rgba(113, 113, 122, 1);
+    margin-bottom: 2px;
+}
+  
+.forgot {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    width: 394px;
+
+}
+  
+
+.footerText {
+    color: rgba(113, 113, 122, 1);
+    font-size: 12px;
+    text-align: center;
+    width: 394px;
+
+}
+  
+.footerText a {
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+}
+  
+
+  
