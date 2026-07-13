@@ -10,7 +10,7 @@
     justify-content: center;
     z-index: 1000;
 }
-  
+
 .overlay {
     position: relative;
     background-color: rgb(20, 20, 20);
@@ -24,51 +24,44 @@
     align-items: center;
     gap: 20px;
     max-height: 90vh;
-    overflow-y: auto;
 }
-
-
-
 
 .xlogo {
     align-self: center;
     margin-bottom: 8px;
-    height:50px;
-    width:45px;
+    height: 50px;
+    width: 45px;
 }
-  
+
 .heading {
     font-family: "Helvetica Neue";
     font-weight: 800;
-    font-size: 31px;
+    font-size: 30px;
     color: white;
     margin: 0;
     width: 394px;
 }
-  
-.inputField {
+
+
+
+
+.inputWrapper {
     position: relative;
     width: 394px;
-    height:100%;
-    border: 2px solid rgba(63, 63, 70, 1);
-    border-radius: 5px;
-    padding: 8px 12px 6px;
-    box-sizing: border-box;
-    background-color: black;
 }
-  
-.inputField:focus-within {
-    border-color: rgb(29, 155, 240);
-    border-width: 2px;
-    padding: 8px 12px 6px;
+
+
+
+.eyeButton {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-45%);
+    background: none;
+    border: none;
+    cursor: pointer;
 }
-.inputField label {
-    display: block;
-    font-size: 13px;
-    color: rgba(113, 113, 122, 1);
-    margin-bottom: 2px;
-}
-  
+
 .forgot {
     color: white;
     font-weight: bold;
@@ -76,24 +69,193 @@
     text-decoration: none;
     cursor: pointer;
     width: 394px;
-
 }
-  
 
 .footerText {
     color: rgba(113, 113, 122, 1);
     font-size: 12px;
     text-align: center;
     width: 394px;
-
 }
-  
+
 .footerText a {
     color: white;
     font-weight: 500;
     cursor: pointer;
     text-decoration: none;
 }
-  
 
-  
+.phoneHeading {
+    font-family: "Helvetica Neue";
+    font-weight: 800;
+    font-size: 28px;
+    color: white;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+}
+
+.phoneFieldContainer {
+    position: relative;
+    width: 394px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.phoneField {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 2px solid rgba(63, 63, 70, 1);
+    background-color: black;
+    box-sizing: border-box;
+    padding: 4px;
+}
+
+.phoneFieldFocused {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 2px solid rgb(29, 155, 240);
+    background-color: black;
+    box-sizing: border-box;
+    padding: 4px;
+}
+
+.phoneFieldError {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 2px solid rgb(244, 33, 46);
+    background-color: black;
+    box-sizing: border-box;
+    padding: 4px;
+}
+
+.phoneDivider {
+    width: 1px;
+    height: 35px;
+    background-color: rgba(63, 63, 70, 1);
+}
+
+.phoneInput {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 17px;
+    padding: 12px 12px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.phoneInput::placeholder {
+    color: rgba(113, 113, 122, 1);
+}
+
+.countryDropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgb(20, 20, 20);
+    border: 2px solid rgba(63, 63, 70, 1);
+    overflow: hidden;
+    z-index: 10;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    border-top: none;
+}
+
+.countrySearchContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 56px;
+    padding: 0 16px;
+    border-bottom: 1px solid rgba(63, 63, 70, 1);
+    box-sizing: border-box;
+    background-color: rgb(20, 20, 20);
+}
+
+.countrySearchContainer img {
+    height: 23px;
+    width: 23px;
+}
+
+.countrySearchInput {
+    height: 100%;
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 16px;
+}
+
+.countrySearchInput::placeholder {
+    color: rgba(113, 113, 122, 1);
+}
+
+.countryList {
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+.countryOption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 14px 16px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.countryOption:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.countryOptionLeft {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.phoneErrorText {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: rgb(244, 33, 46);
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    width: 384px;
+}
+
+.phoneDisclaimer {
+    color: rgba(113, 113, 122, 1);
+    font-size: 12px;
+    line-height: 1.4;
+    width: 374px;
+    margin-top: 200px;
+}
+
+.phonePrivacyLink {
+    width: 374px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: rgba(113, 113, 122, 1);
+    font-weight: bold;
+    font-size: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: -15px;
+}

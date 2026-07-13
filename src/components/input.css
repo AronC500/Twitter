@@ -25,15 +25,61 @@
 }
   
 
-
 .userInput {
-    width:100%;
+    width: 394px;
+    height: 60px;
+    box-sizing: border-box;
+    padding: 0 12px;
+    border: 2px solid rgba(63, 63, 70, 1);
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    font-size: 17px;
+    outline: none;
+}
+
+.userInput::placeholder {
+    color: rgba(113, 113, 122, 1);
+    font-size: 15px;
+    font-weight: 400;
+}
+
+
+.userInput:focus {
+    border-color: rgb(29, 155, 240);
+}
+
+.phoneInput {
+    flex: 1;
     background: transparent;
     border: none;
     outline: none;
     color: white;
     font-size: 17px;
-    padding: 4px 0;
+    padding: 12px 12px;
     box-sizing: border-box;
+    width: 100%;
 }
   
+.phoneInput::placeholder {
+    color: rgba(113, 113, 122, 1);
+}
+  
+
+
+
+
+.countrySearchInput {
+    height: 100%;
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 16px;
+}
+  
+.countrySearchInput::placeholder {
+    color: rgba(113, 113, 122, 1);
+}
+
