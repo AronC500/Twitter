@@ -71,12 +71,13 @@
     width: 394px;
 }
 
-.footerText {
+.footerText, .verificationSubtext {
     color: rgba(113, 113, 122, 1);
     font-size: 12px;
     text-align: center;
     width: 394px;
 }
+
 
 .footerText a {
     color: white;
@@ -258,4 +259,46 @@
     text-decoration: none;
     cursor: pointer;
     margin-top: -15px;
+}
+.usePasswordLink {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.verificationSubtext {
+    text-align: left;
+    width: 394px;
+    font-size:15px;
+    margin-top:-10px;
+}
+
+.verificationContainer {
+    display: flex;
+    gap: 12px;
+    width: 394px;
+}
+
+.codeBox {
+    flex: 1;
+    display:flex;
+    align-items:center;
+    max-width: 56px;
+    background: black;
+    border: 2px solid rgba(63, 63, 70, 1);
+    border-radius: 7px;
+    color: white;
+    font-size: 18px;
+    justify-content:Center;
+    outline: none;
+    height:52px;
+}
+
+.codeBox:hover {
+    cursor:text;
 }
