@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import './popup.css'
 import ErrorMessage from './errorMessage.jsx'
 import Input from './input.jsx'
@@ -20,13 +20,16 @@ function PopUp({ type, onClose }) {
     const [showPassword, setShowPassword] = useState(false)
     const [invalid, setInvalid] = useState(false)
     const [phoneFocused, setPhoneFocused] = useState(false)
+    const [verificationCode, setVerificationCode] = useState(['|', '', '', '', '', ''])
 
     const [selectedCountry, setSelectedCountry] = useState(countries[0])
     const [phoneNumber, setPhoneNumber] = useState('')
     const [showDropdown, setShowDropdown] = useState(false)
+    const [showVerification, setShowVerification] = useState(false)
     const [search, setSearch] = useState('')
 
     const testpassword = '1'
+    const testverification = '111111'
 
     function handleContinue() {
         if (password !== testpassword) {
@@ -36,7 +39,43 @@ function PopUp({ type, onClose }) {
         navigate('/home')
         setInvalid(false)
     }
+    function handlekeyPress(e) {
+        if (e.key >= "0" && e.key <= "9") {
+            const nextEmptyIndex = verificationCode.findIndex((element) => element === '')
+            if (nextEmptyIndex === -1) {
+                return
+            }
+            const updated = [...verificationCode]
+            updated[nextEmptyIndex] = e.key
+            setVerificationCode(updated)
+        }
+        if (e.key === 'Backspace') {
+            if (invalid) {
+                setInvalid(false)
+            }
+            const lastFilledIndex = [...verificationCode].reverse().findIndex((element) => element !== '')
+            if (lastFilledIndex === -1) {
+                return
+            }
 
+            const actualIndex = verificationCode.length - 1 - lastFilledIndex
+            const updated = [...verificationCode]
+            updated[actualIndex] = ''
+            setVerificationCode(updated)
+        }
+
+
+    }
+    useEffect(() => {
+        if (!showVerification) {
+            return
+        }
+
+        window.addEventListener('keydown', handlekeyPress)
+        return () => {
+            window.removeEventListener('keydown', handlekeyPress)
+        }
+    }, [verificationCode, showVerification, invalid])
     function handlePhoneContinue() {
         const isValid = isValidPhoneNumber(phoneNumber, selectedCountry.isoCode)
         if (!isValid) {
@@ -45,6 +84,17 @@ function PopUp({ type, onClose }) {
         }
 
         setInvalid(false)
+        setShowVerification(true)
+
+    }
+    function enterCode() {
+        if (verificationCode[0] === '') {
+            return
+        }
+        if (verificationCode.join() !== '111111') {
+            setInvalid(true)
+        }
+
     }
 
     function testNumber(e) {
@@ -86,7 +136,7 @@ function PopUp({ type, onClose }) {
                 </div>
             }
 
-            {type === 'phone' &&
+            {type === 'phone' && !showVerification &&
                 <div className="overlay">
                     <Button img="/whitearrow.png" className="backButton" onClick={onClose} />
                     <img className="xlogo" src="/xlogo.png" />
@@ -152,6 +202,38 @@ function PopUp({ type, onClose }) {
                     }
                     <Button text="Continue" onClick={phoneNumber.length === 0 ? () => { } : handlePhoneContinue} imgstyle={{ width: '0px', height: '0px' }} className={phoneNumber.length === 0 ? 'invalidBlackContinueButton' : 'validBlackContinueButton'} extrastyles={{ marginTop: '5px' }}
                     />
+                </div>
+            }
+            {showVerification &&
+                <div className="overlay" style={{ gap: '17px' }}>
+                    <Button img="/whitearrow.png" className="backButton" onClick={() => {
+                        setShowVerification(false)
+                        setInvalid(false)
+                        setVerificationCode(['', '', '', '', '', ''])
+                    }} />
+                    <a className="usePasswordLink">Use password</a>
+
+                    <img className="xlogo" src="/xlogo.png" />
+                    <h1 className="heading">We sent you a security code</h1>
+                    <p className="verificationSubtext">The code was sent to your phone</p>
+
+                    <div className="verificationContainer">
+                        {verificationCode.map((element, index) => (
+                            <div key={index} className='codeBox' style={element === '|' ? { fontSize: '25px' } : {}}>
+                                {element}
+                            </div>
+                        ))}
+                    </div>
+
+                    {invalid &&
+                        <ErrorMessage image='/rederror.png' text='Invalid code. Double-check and enter it again.' className='errorMessage' extrastyles={{ justifyContent: 'flex-start', marginTop: '-12px' }} />
+                    }
+
+                    <p className="footerText" style={{ textAlign: 'left', fontSize: '14px' }} >
+                        Didn't receive a code? <a style={{ fontWeight: 'bold' }}>Send again</a>
+                    </p>
+
+                    <Button text="Continue" className={verificationCode[0] === '' ? 'invalidBlackContinueButton verificationContinueButton' : 'validBlackContinueButton verificationContinueButton'} extrastyles={{ marginTop: '200px' }} onClick={enterCode} />
                 </div>
             }
         </div >
