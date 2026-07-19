@@ -52,24 +52,6 @@
 
 
 
-.eyeButton {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-45%);
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.forgot {
-    color: white;
-    font-weight: bold;
-    font-size: 14px;
-    text-decoration: none;
-    cursor: pointer;
-    width: 394px;
-}
 
 .footerText, .verificationSubtext {
     color: rgba(113, 113, 122, 1);
@@ -260,16 +242,6 @@
     cursor: pointer;
     margin-top: -15px;
 }
-.usePasswordLink {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    color: white;
-    font-weight: bold;
-    font-size: 14px;
-    text-decoration: none;
-    cursor: pointer;
-}
 
 .verificationSubtext {
     text-align: left;
@@ -302,3 +274,17 @@
 .codeBox:hover {
     cursor:text;
 }
+
+@keyframes blinking {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0;
+    }
+}
+
+.codeBoxAnimation {
+    animation: blinking 1s step-end infinite;
+}
+

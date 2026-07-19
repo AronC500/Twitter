@@ -4,8 +4,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    width: 100%;
-    max-width: 394px;
+    width: 394px;
     color: black;
     cursor: pointer;
     background-color: white;
@@ -20,4 +19,160 @@
 .continueButton img {
     height: 20px;
     width: 20px;
+}
+
+.validBlackContinueButton {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    width: 394px;
+    border-radius: 9999px;
+    background-color: white;
+    color: black;
+    border: none;
+    font-weight: bold;
+    font-size: 17px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    cursor: pointer;
+
+
+}
+
+.invalidBlackContinueButton {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    width: 394px;
+    border-radius: 9999px;
+    background-color: rgb(38, 38, 39);
+    color: rgb(98, 98, 108);
+    border: none;
+    font-weight:bold;
+    font-size: 17px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    cursor: default;
+
+}
+
+
+.backButton {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 999px;
+  }
+
+.backButton img {
+    width:25px;
+    height:25px;
+}
+
+.backButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.eyeButton {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgba(113, 113, 122, 1);
+    font-size: 16px;
+    top:50%;
+    transform: translateY(-45%);
+
+}
+
+
+
+.eyeButton img {
+    width:18px;
+    height:20px;
+}
+
+
+.countrySelector {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 12px 10px;
+    white-space: nowrap;
+}
+
+.passwordLink {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    background-color:transparent;
+    border:none;
+}
+
+.forgot {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    background-color:transparent;
+    border:none;
+    padding:0;
+
+
+}
+
+
+
+.recoveryOption {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 394px;
+    background-color: rgb(20, 20, 20);
+    border: 1px solid rgba(63, 63, 70, 1);
+    border-radius: 9px;
+    padding: 15px;
+    box-sizing: border-box;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: left;
+}
+
+.recoveryOption:hover {
+    background-color: rgba(63, 63, 70, 1);
+}
+
+.recoveryOptionValue {
+    color: rgba(113, 113, 122, 1);
+    font-weight: normal;
+    font-size: 13px;
+    margin-top: 5px;
+    text-align: left;
 }

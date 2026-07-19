@@ -5,9 +5,8 @@
     text-align:center;
     width:394px;
     display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:5px;
+    gap:10px;
+    margin-top:-12px;
 }
 
 .errorMessage img {

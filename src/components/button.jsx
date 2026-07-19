@@ -1,12 +1,13 @@
 import './button.css'
 
-function Button({ text, onClick, img, buttonstyle, imgstyle }) {
+function Button({ text, onClick, img, className, extrastyles, children, onBlur }) {
   return (
-    <button className="continueButton" style={buttonstyle} onClick={onClick}>
-      <img src={img} style={imgstyle}/>
-      <span>{text}</span>
+    <button className={className} onClick={onClick} style={extrastyles} onBlur={onBlur}>
+      {img && <img src={img} />}
+      {text && <span>{text}</span>}
+      {children}
     </button>
   )
 }
 
-export default Button
+export default Button 

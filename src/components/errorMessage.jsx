@@ -1,15 +1,14 @@
 import './errorMessage.css'
 
 
-function ErrorMessage({ image, text, className }) {
+function ErrorMessage({ image, text, className, extrastyles }) {
     return (
-        <p className={className}>
-            <img src={image}></img>
-            <p>{text}</p>
-        </p>
+        <div className={className} style={extrastyles}>
+            {image && <img src={image} alt="" />}
+            {text && <p>{text}</p>}
+        </div>
     )
 }
-
 
 
 export default ErrorMessage;

@@ -1,6 +1,5 @@
-.loginInput {
+.loginInput, .loginInputInvalid {
     width: 394px;
-
     box-sizing: border-box;
     background-color: transparent;
     border: 2px solid rgba(63, 63, 70, 1);
@@ -12,6 +11,9 @@
     height:60px;
 }
   
+.loginInputInvalid  {
+    border: 2px solid rgb(244, 33, 46);
+}
 .loginInput::placeholder {
     color: rgba(113, 113, 122, 1);
     font-size:15px;
@@ -25,7 +27,7 @@
 }
   
 
-.userInput {
+.userInput, .userInputInvalid {
     width: 394px;
     height: 60px;
     box-sizing: border-box;
@@ -36,6 +38,10 @@
     color: white;
     font-size: 17px;
     outline: none;
+}
+.userInputInvalid {
+    border: 2px solid rgb(244, 33, 46);
+
 }
 
 .userInput::placeholder {
