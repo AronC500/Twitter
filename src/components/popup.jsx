@@ -13,10 +13,40 @@ const countries = [
     { name: 'Algeria', code: '+213', flag: '🇩🇿', isoCode: 'DZ' },
 ]
 
+const topics = [
+    { name: 'News', icon: '/whitenews.png' },
+    { name: 'Sports', icon: '/whiteball.png' },
+    { name: 'Business & Finance', icon: '/whitebusiness.png' },
+    { name: 'Technology', icon: '/whitetechnology.png' },
+    { name: 'Politics', icon: '/whitepodium.png' },
+    { name: 'Memes', icon: '/whitememe.png' },
+    { name: 'Cryptocurrency', icon: '/whitecurrency.png' },
+    { name: 'Financial Markets & Insights', icon: '/whitechart.png' },
+    { name: 'Fashion', icon: '/whitefashion.png' },
+    { name: 'Gaming', icon: '/whitecontroller.png' },
+    { name: 'Movies & TV', icon: '/whitefilm.png' },
+    { name: 'Music', icon: '/whitemusical.png' },
+    { name: 'Travel', icon: '/whiteairplane.png' },
+    { name: 'Food', icon: '/whiteburger.png' },
+    { name: 'Science', icon: '/whitecell.png' },
+    { name: 'Health & Fitness', icon: '/whitehealth.png' },
+    { name: 'Basketball', icon: '/whitebasketball.png' },
+    { name: 'Baseball', icon: '/whitebaseball.png' },
+    { name: 'American Football', icon: '/whiteamericanfootball.png' },
+    { name: 'Soccer', icon: '/whitesoccer.png' },
+    { name: 'Celebrity', icon: '/whitecelebrity.png' },
+    { name: 'Pets', icon: '/whitepaw.png' },
+]
 function PopUp({ type, onClose, userInput }) {
     const navigate = useNavigate()
     const [showNewPassword, setShowNewPassword] = useState(false)
     const [newPassword, setNewPassword] = useState('')
+    const [showInterests, setShowInterests] = useState(false)
+    const [selectedTopics, setSelectedTopics] = useState([])
+    const [showProfilePicture, setShowProfilePicture] = useState(true)
+
+    const [showNotifications, setShowNotifications] = useState(false)
+    const RequiredTopicCount = 3
 
     const [username, setUsername] = useState(userInput || '')
     const [password, setPassword] = useState('')
@@ -26,19 +56,20 @@ function PopUp({ type, onClose, userInput }) {
     const [verificationCode, setVerificationCode] = useState(['', '', '', '', '', ''])
     const [usePasswordForPhone, setUsePasswordForPhone] = useState(false)
     const [showNormalLogin, setShowNormalLogin] = useState(type === 'NormalLogin' || false)
-    const [openForgotPassword, setOpenForgotPassword] = useState(false)
     const [recoveryInput, setRecoveryInput] = useState('')
     const maskedEmail = 'ar**********@*****.com'
     const maskedPhone = '**********85'
     const [showFindAccount, setShowFindAccount] = useState(false)
     const [showRecoveryMethod, setShowRecoveryMethod] = useState(false)
+    const [recoveryMethod, setRecoveryMethod] = useState('')
 
     const [selectedCountry, setSelectedCountry] = useState(countries[0])
     const [phoneNumber, setPhoneNumber] = useState('')
+    const [phoneLoginValue, setPhoneLoginValue] = useState('')
     const [showDropdown, setShowDropdown] = useState(false)
     const [showVerification, setShowVerification] = useState(false)
     const [search, setSearch] = useState('')
-    const identifierEmpty = usePasswordForPhone ? phoneNumber.length === 0 : username.length === 0
+    const identifierEmpty = usePasswordForPhone ? phoneLoginValue.length === 0 : username.length === 0
     const isFormInvalid = identifierEmpty || password.length === 0
 
     const testpassword = '1'
@@ -97,6 +128,7 @@ function PopUp({ type, onClose, userInput }) {
         const isValid = isValidPhoneNumber(phoneNumber, selectedCountry.isoCode)
         if (!isValid) {
             setInvalid(true)
+            setShowDropdown(false)
             return
         }
 
@@ -130,25 +162,23 @@ function PopUp({ type, onClose, userInput }) {
         setUsePasswordForPhone(true)
         setShowVerification(false)
         setShowNormalLogin(true)
-        setPhoneNumber('')
         setInvalid(false)
-
-        if (phoneNumber.includes(selectedCountry.code)) {
-            return
-
-        }
-        else {
-            setPhoneNumber(selectedCountry.code + phoneNumber)
-        }
-
-
+        setPhoneLoginValue(
+            phoneNumber.includes(selectedCountry.code) ? phoneNumber : selectedCountry.code + phoneNumber
+        )
     }
     function findAccount() {
-        if (username !== 'b') {
+        if (recoveryInput.length === 0) {
+            return
+        }
+        if (recoveryInput !== 'b') {
             setInvalid(true)
         }
         else {
             setInvalid(false)
+            setShowRecoveryMethod(true)
+            setShowFindAccount(false)
+
         }
     }
     function checkNewPassword() {
@@ -163,6 +193,47 @@ function PopUp({ type, onClose, userInput }) {
             setInvalid(false)
         }
     }
+    function RecoveryMethod(method) {
+        if (method === 'email') {
+            setRecoveryMethod('email')
+        }
+        else {
+            setRecoveryMethod('phone')
+        }
+        setShowVerification(true)
+        setShowRecoveryMethod(false)
+    }
+    function openForgotPasswordView() {
+        setShowFindAccount(true)
+        setShowNormalLogin(false)
+        setRecoveryInput(phoneNumber === '' ? username : phoneNumber)
+        setInvalid(false)
+    }
+    function backToLoginFromFindAccount() {
+        setShowFindAccount(false)
+        setShowNormalLogin(true)
+        setInvalid(false)
+        setRecoveryInput('')
+    }
+    function backToPhoneEntry() {
+        setShowNewPassword(false)
+        setShowRecoveryMethod(false)
+        setShowFindAccount(false)
+        setShowVerification(false)
+        setShowNormalLogin(false)
+        setInvalid(false)
+    }
+    function toggleTopic(name) {
+        if (selectedTopics.includes(name)) {
+            setSelectedTopics(selectedTopics.filter((topic) => topic !== name))
+        } else {
+            setSelectedTopics([...selectedTopics, name])
+        }
+    }
+    function uploadPicture() {
+
+    }
+
     const filteredCountries = countries.filter((element) =>
         element.name.toLowerCase().includes(search.toLowerCase())
     )
@@ -174,19 +245,16 @@ function PopUp({ type, onClose, userInput }) {
                     <Button img="/whitearrow.png" className="backButton" onClick={usePasswordForPhone ? () => {
                         setShowNormalLogin(false)
                         setUsePasswordForPhone(false)
-                        setShowVerification(true)
+                        setShowVerification(false)
                         setInvalid(false)
-
-
-
-
+                        setVerificationCode(['', '', '', '', '', ''])
                     }
                         : onClose} />
                     <img className="xlogo" src="/xlogo.png" />
                     <h1 className="heading">Login</h1>
-                    <Input className="userInput" type="text" placeholder={usePasswordForPhone ? "Phone" : "Username"} value={usePasswordForPhone ? phoneNumber : username} onChange={(e) => {
+                    <Input className="userInput" type="text" placeholder={usePasswordForPhone ? "Phone" : "Username"} value={usePasswordForPhone ? phoneLoginValue : username} onChange={(e) => {
                         if (usePasswordForPhone) {
-                            setPhoneNumber(e.target.value)
+                            setPhoneLoginValue(e.target.value)
                         }
                         else {
                             setUsername(e.target.value)
@@ -210,7 +278,7 @@ function PopUp({ type, onClose, userInput }) {
                     }
 
                     <div style={{ width: '394px', display: 'flex', justifyContent: 'flex-start' }}>
-                        <Button onClick={openForgotPassword} className="forgot" text="Forgot password?" />
+                        <Button onClick={openForgotPasswordView} className="forgot" text="Forgot password?" />
                     </div>
 
                     <Button
@@ -227,20 +295,19 @@ function PopUp({ type, onClose, userInput }) {
                 </div>
             }
 
-            {type === 'phone' && !showVerification && !showNormalLogin &&
-                <div className="overlay">
+            {type === 'phone' && !showVerification && !showNormalLogin && !showFindAccount && !showRecoveryMethod && !showNewPassword && !showInterests && !showNotifications && !showProfilePicture &&
+                < div className="overlay">
                     <Button img="/whitearrow.png" className="backButton" onClick={onClose} />
                     <img className="xlogo" src="/xlogo.png" />
                     <h1 className="heading">Enter your phone number</h1>
                     <div className="phoneFieldContainer" >
-                        <div className={phoneFocused ? 'phoneFieldFocused' : !invalid ? 'phoneField' : 'phoneFieldError'}>
+                        <div className={phoneFocused && !invalid ? 'phoneFieldFocused' : !invalid ? 'phoneField' : 'phoneFieldError'}>
                             <Button className="countrySelector"
                                 onClick={() => {
                                     setPhoneFocused(true)
                                     setShowDropdown(!showDropdown)
                                     if (showDropdown) {
                                         setPhoneFocused(false)
-
                                     }
                                 }
                                 } text={`${selectedCountry.flag} ${selectedCountry.code}`}>
@@ -297,18 +364,20 @@ function PopUp({ type, onClose, userInput }) {
                     />
                 </div>
             }
-            {showVerification &&
+            {
+                showVerification &&
                 <div className="overlay" style={{ gap: '17px' }}>
                     <Button img="/whitearrow.png" className="backButton" onClick={() => {
                         setShowVerification(false)
                         setInvalid(false)
                         setVerificationCode(['', '', '', '', '', ''])
                     }} />
-                    <Button className="passwordLink" text='Use password' onClick={usePasswordInstead}></Button>
+                    {recoveryMethod === '' ? <Button className="passwordLink" text='Use password' onClick={usePasswordInstead}></Button> : <div></div>}
                     <img className="xlogo" src="/xlogo.png" />
                     <h1 className="heading">We sent you a security code</h1>
-                    <p className="verificationSubtext">The code was sent to your phone</p>
-
+                    <p className="verificationSubtext">
+                        {recoveryMethod === 'email' ? `The code was sent to ${maskedEmail}` : recoveryMethod === 'phone' ? `The code was sent to ${maskedPhone}` : 'The code was sent to your phone'}
+                    </p>
                     <div className="verificationContainer">
                         {verificationCode.map((element, index) => {
                             const nextEmptyIndex = verificationCode.findIndex((element) => element === '')
@@ -334,9 +403,10 @@ function PopUp({ type, onClose, userInput }) {
                     <Button text="Continue" className={verificationCode[0] === '' ? 'invalidBlackContinueButton verificationContinueButton' : 'validBlackContinueButton verificationContinueButton'} extrastyles={{ marginTop: '200px' }} onClick={enterCode} />
                 </div>
             }
-            {showFindAccount &&
+            {
+                showFindAccount &&
                 <div className="overlay" style={{ gap: '15px' }}>
-                    <Button img="/whitearrow.png" className="backButton" onClick={onClose} />
+                    <Button img="/whitearrow.png" className="backButton" onClick={backToLoginFromFindAccount} />
                     <img className="xlogo" src="/xlogo.png" />
                     <h1 className="heading">Find your account</h1>
                     <p className="footerText" style={{ textAlign: 'left', fontSize: '13px', marginTop: '-7px' }}>Enter your email or username to reset your password.</p>
@@ -345,8 +415,8 @@ function PopUp({ type, onClose, userInput }) {
                         className={invalid ? 'userInputInvalid' : 'userInput'}
                         type="text"
                         placeholder="Email or username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
+                        value={recoveryInput}
+                        onChange={(e) => setRecoveryInput(e.target.value)}
                     />
 
                     {invalid &&
@@ -355,33 +425,37 @@ function PopUp({ type, onClose, userInput }) {
 
                     <Button
                         text="Continue"
-                        className={username.length === 0 ? 'invalidBlackContinueButton' : 'validBlackContinueButton'}
+                        className={recoveryInput.length === 0 ? 'invalidBlackContinueButton' : 'validBlackContinueButton'}
                         extrastyles={{ marginTop: '285px' }}
                         onClick={findAccount}
-
                     />
                 </div>
             }
 
-            {showRecoveryMethod &&
+            {
+                showRecoveryMethod &&
                 <div className="overlay" style={{ height: '630px', gap: '10px' }}>
-                    <Button img="/whitearrow.png" className="backButton" onClick={onClose} />
+                    <Button img="/whitearrow.png" className="backButton" onClick={() => {
+                        setShowRecoveryMethod(false)
+                        setShowFindAccount(true)
+                    }} />
                     <img className="xlogo" src="/xlogo.png" />
                     <h1 className="heading">Where should we send a code?</h1>
                     <p className="footerText" style={{ textAlign: 'left', fontSize: '13.5px', marginTop: '-5px', paddingBottom: '20px' }}>Choose a recovery method to continue.</p>
 
-                    <Button className="recoveryOption" text="Email">
+                    <Button className="recoveryOption" text="Email" onClick={() => RecoveryMethod('email')}>
                         <div className="recoveryOptionValue">{maskedEmail}</div>
                     </Button>
 
-                    <Button className="recoveryOption" text="Text message">
+                    <Button className="recoveryOption" text="Text message" onClick={() => RecoveryMethod('phone')}>
                         <div className="recoveryOptionValue">{maskedPhone}</div>
                     </Button>
                 </div>
             }
-            {showNewPassword &&
+            {
+                showNewPassword &&
                 <div className="overlay" style={{ gap: '10px' }} >
-                    <Button img="/whitearrow.png" className="backButton" onClick={onClose} />
+                    <Button img="/whitearrow.png" className="backButton" onClick={backToPhoneEntry} />
                     <img className="xlogo" src="/xlogo.png" />
                     <h1 className="heading">Choose a new password</h1>
                     <p className="footerText" style={{ textAlign: 'left', fontSize: '13.5px', margin: '0px', paddingBottom: '8px' }}>Make sure it is at least 8 characters.</p>
@@ -409,6 +483,84 @@ function PopUp({ type, onClose, userInput }) {
                     />
                 </div>
             }
+            {
+                showInterests &&
+                <div className="interestsOverlay ">
+                    <h1 className="heading" >Pick your interests</h1>
+                    <p className="interestsSubtext">Select {RequiredTopicCount} topics to continue</p>
+
+                    <div className="topicGrid">
+                        {topics.map((element) => (
+                            <Button
+                                key={element.name}
+                                className={selectedTopics.includes(element.name) ? 'topicSelected' : 'topic'}
+                                onClick={() => toggleTopic(element.name)}
+                            >
+                                <img src={element.icon} />
+                                <span>{element.name}</span>
+                            </Button>
+                        ))}
+                    </div>
+
+                    <Button
+                        text="Continue"
+                        className={selectedTopics.length >= RequiredTopicCount ? 'validBlackContinueButton' : 'invalidBlackContinueButton'}
+                        onClick={selectedTopics.length >= RequiredTopicCount ? () => navigate('/home') : () => { }}
+                        extrastyles={{ marginTop: '24px' }}
+                    />
+                </div>
+            }
+            {
+                showNotifications &&
+                <div className="overlay" style={{ gap: '10px' }} >
+                    <Button img="/whitearrow.png" className="backButton" onClick={() => { }} />
+                    <Button className="notNow" text='Not now' onClick={() => navigate('/home')}></Button>
+
+                    <img className="xlogo" src="/xlogo.png" />
+                    <h1 className="heading" style={{ textAlign: 'center', marginTop: '75px' }}>Never miss a moment </h1>
+                    <p className="footerText" style={{ textAlign: 'center', fontSize: '13.5px', margin: '0px', paddingBottom: '8px', width: '600px' }}>Get notified when your posts go viral, people follow you or send you messages.</p>
+                    <img src='/notificationimage.jpeg' style={{ width: '600px' }} />
+
+                    <Button
+                        text="Enable Notifications"
+                        className='notification'
+                        extrastyles={{ marginTop: '75px' }}
+                        onClick={() => navigate('/home')}
+                        img='/blacknotification.png'
+                    />
+                </div>
+            }
+            {
+                showProfilePicture &&
+                <div className="overlay" style={{ gap: '10px' }} >
+                    <Button img="/whitearrow.png" className="backButton" onClick={() => { }} />
+
+                    <img className="xlogo" src="/xlogo.png" />
+                    <h1 className="heading" >Set a profile picture </h1>
+                    <p className="footerText" style={{ textAlign: 'left', fontSize: '13.5px', margin: '0px', paddingBottom: '8px' }}>Have a favorite selfie? Upload it now.</p>
+                    <div style={{ width: '180px', height: '180px', marginTop: '50px', position: 'relative', borderRadius: '9999px' }}>
+                        <img src='/userr.png' style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                        <div style={{
+                            position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.5)', borderRadius: '9999px'
+                        }} />
+                        <Button className="changeProfilePic" >
+                            <img src='/whitecamera.png' style={{ width: '25px', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }} />
+
+
+                        </Button>
+                    </div>
+                    <Button
+                        text="Upload a profile photo"
+                        className='notification'
+                        extrastyles={{ width: '300px', marginTop: '15px' }}
+                        onClick={uploadPicture}
+                    />
+                    <Button
+                        text="Skip for now"
+                        className='notification'
+                        extrastyles={{ marginTop: '100px', color: 'white', backgroundColor: 'rgb(38, 38, 39)' }}
+                    />
+                </div>}
         </div >
     )
 }
