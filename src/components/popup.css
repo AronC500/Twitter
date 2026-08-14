@@ -48,6 +48,7 @@
 .inputWrapper {
     position: relative;
     width: 394px;
+
 }
 
 
@@ -288,3 +289,198 @@
     animation: blinking 1s step-end infinite;
 }
 
+
+
+
+.interestsOverlay {
+    position: relative;
+    background-color: rgb(20, 20, 20);
+    border-radius: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px 150px 32px;
+    align-items: left;
+    gap: 8px;
+}
+
+.interestsSubtext {
+    font-size: 15px;
+    margin-top: -4px;
+    margin-bottom: 16px;
+    text-align:left;
+    color: rgba(113, 113, 122, 1);
+    width: 394px;
+}
+
+.topicGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 420px;
+}
+
+
+.topicGrid img {
+    width:16px;
+    height:16px;
+}
+
+
+.inputContainer{
+    width: 394px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.inputLabel {
+    color: rgba(113, 113, 122, 1);
+    font-size: 14px;
+}
+
+.star {
+    color: rgba(113, 113, 122, 1);
+    margin-left: 2px;
+}
+
+.usernameField {
+    display: flex;
+    align-items: center;
+    width: 394px;
+    height: 60px;
+    box-sizing: border-box;
+    padding: 0 0 0 18px;
+    border: 2px solid rgba(63, 63, 70, 1);
+    border-radius: 5px;
+    background-color: black;
+}
+
+
+.usernameField:focus-within {
+    border-color: rgb(29, 155, 240);
+}
+
+.usernameAt {
+    color: rgba(113, 113, 122, 1);
+    font-size: 18px;
+    padding-right: 18px;
+    border-right: 2px solid rgba(63, 63, 70, 1);
+    height:100%;
+    display:flex;
+    align-items:center;
+}
+
+
+.userSuccess {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: rgb(0, 186, 124);
+    font-size: 13px;
+    margin: 0;
+}
+
+.hint {
+    color: rgba(113, 113, 122, 1);
+    font-size: 12px;
+    margin: 0;
+}
+
+.suggestionUserRow {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.suggestionButton {
+    background: transparent;
+    border: 1px solid rgba(63, 63, 70, 1);
+    border-radius: 6px;
+    color: rgba(113, 113, 122, 1);
+    font-size: 13px;
+    padding: 8px 14px;
+    cursor: pointer;
+}
+
+.suggestionPill:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+
+
+
+
+.birthdayRow {
+    display: flex;
+    gap: 12px;
+    width: 394px;
+}
+
+.birthdaySelectGroup {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 60px;
+    box-sizing: border-box;
+    border: 2px solid rgba(63, 63, 70, 1);
+    border-radius: 5px;
+    padding: 6px 20px 0 10px;
+
+    background-color: black;
+}
+
+.birthdaySelectArrow {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    cursor:default;
+}
+
+.birthdaySelectGroup:focus-within {
+    border-color: rgb(29, 155, 240);
+}
+
+
+
+.birthdaySelectLabel {
+    color: rgba(113, 113, 122, 1);
+    font-size: 11px;
+    line-height: 1;
+    padding-top:3px;
+}
+
+.birthdaySelect {
+    flex: 1;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    padding-bottom:2px;
+    appearance: none;
+}
+
+
+.birthdaySelect {
+    position: absolute;
+    border-radius: 5px;
+    height: 60px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    appearance: none;
+    left:0px;
+    top:0px;
+    padding-top:15px;
+    padding-left:10px;
+}

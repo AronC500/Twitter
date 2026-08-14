@@ -6,6 +6,10 @@ import Button from './button.jsx'
 import { useNavigate } from 'react-router-dom'
 import { isValidPhoneNumber } from 'libphonenumber-js'
 
+
+//need do when user new acc using username instead of other login 
+//for user account when they use google login, password is optional but for phone number, if they put a password before, then they can click the use password instead button.
+
 const countries = [
     { name: 'United States', code: '+1', flag: '🇺🇸', isoCode: 'US' },
     { name: 'Afghanistan', code: '+93', flag: '🇦🇫', isoCode: 'AF' },
@@ -43,7 +47,45 @@ function PopUp({ type, onClose, userInput }) {
     const [newPassword, setNewPassword] = useState('')
     const [showInterests, setShowInterests] = useState(false)
     const [selectedTopics, setSelectedTopics] = useState([])
-    const [showProfilePicture, setShowProfilePicture] = useState(true)
+    const [showProfilePicture, setShowProfilePicture] = useState(false)
+    const [showSetUpAccount, setShowSetUpAccount] = useState(false)
+    const [signupName, setSignupName] = useState('')
+    const [signupUsername, setSignupUsername] = useState('')
+    const [signupPassword, setSignupPassword] = useState('')
+    const [showSignupPassword, setShowSignupPassword] = useState(false)
+    const [usernameTouched, setUsernameTouched] = useState(false)
+    const [passwordTouched, setpasswordTouched] = useState(false)
+
+    const [showBirthday, setShowBirthday] = useState(false)
+    const [showAgeBlocked, setShowAgeBlocked] = useState(false)
+
+
+    const today = new Date()
+    const [birthMonth, setBirthMonth] = useState(String(today.getMonth() + 1))
+    const [birthDay, setBirthDay] = useState(String(today.getDate()))
+    const [birthYear, setBirthYear] = useState(String(today.getFullYear()))
+
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    function checkBirthday() {
+        const dob = new Date(Number(birthYear), Number(birthMonth) - 1, Number(birthDay))
+        const age = Math.floor((new Date() - dob) / (365.25 * 24 * 60 * 60 * 1000))
+
+        if (age < 13) {
+            setShowBirthday(false)
+            setShowAgeBlocked(true)
+        } else {
+            setShowBirthday(false)
+            setShowSetUpAccount(true)
+        }
+    }
+
+    function getDaysInMonth(month, year) {
+        return new Date(Number(year), Number(month), 0).getDate()
+    }
+
+
+    const usernameSuggestions = ['aronchen1', 'aronchen22', 'aron_chen']
+    const takenUsernames = ['aronchen']
 
     const [showNotifications, setShowNotifications] = useState(false)
     const RequiredTopicCount = 3
@@ -136,6 +178,9 @@ function PopUp({ type, onClose, userInput }) {
         setShowVerification(true)
 
     }
+    function checkUsernameAvailable(name) {
+        return name.length > 0 && !takenUsernames.includes(name.toLowerCase())
+    }
     function enterCode() {
         if (verificationCode[0] === '') {
             return
@@ -156,6 +201,20 @@ function PopUp({ type, onClose, userInput }) {
         }
         if (onlyNumbers.test(e.target.value)) {
             setPhoneNumber(e.target.value)
+        }
+    }
+    async function requestNotificationPermission() {
+        if (!('Notification' in window)) {
+            console.log('This browser does not support notifications')
+            return
+        }
+
+        const permission = await Notification.requestPermission()
+
+        if (permission === 'granted') {
+            console.log('Notifications enabled')
+        } else {
+            console.log('Notifications denied')
         }
     }
     function usePasswordInstead() {
@@ -180,6 +239,14 @@ function PopUp({ type, onClose, userInput }) {
             setShowFindAccount(false)
 
         }
+    }
+
+    function checkSetUpAccount() {
+        if (checkUsernameAvailable(signupUsername) && signupName.length > 0) {
+            navigate('/home')
+
+        }
+
     }
     function checkNewPassword() {
         if (newPassword.length === 0) {
@@ -295,7 +362,7 @@ function PopUp({ type, onClose, userInput }) {
                 </div>
             }
 
-            {type === 'phone' && !showVerification && !showNormalLogin && !showFindAccount && !showRecoveryMethod && !showNewPassword && !showInterests && !showNotifications && !showProfilePicture &&
+            {type === 'phone' && !showVerification && !showNormalLogin && !showFindAccount && !showRecoveryMethod && !showNewPassword && !showInterests && !showNotifications && !showProfilePicture && !showSetUpAccount && !showBirthday && !showAgeBlocked &&
                 < div className="overlay">
                     <Button img="/whitearrow.png" className="backButton" onClick={onClose} />
                     <img className="xlogo" src="/xlogo.png" />
@@ -525,7 +592,7 @@ function PopUp({ type, onClose, userInput }) {
                         text="Enable Notifications"
                         className='notification'
                         extrastyles={{ marginTop: '75px' }}
-                        onClick={() => navigate('/home')}
+                        onClick={requestNotificationPermission}
                         img='/blacknotification.png'
                     />
                 </div>
@@ -561,6 +628,149 @@ function PopUp({ type, onClose, userInput }) {
                         extrastyles={{ marginTop: '100px', color: 'white', backgroundColor: 'rgb(38, 38, 39)' }}
                     />
                 </div>}
+            {
+                showSetUpAccount &&
+                <div className="overlay">
+                    <Button img="/whitearrow.png" className="backButton" onClick={() => { }} />
+                    <img className="xlogo" src="/xlogo.png" />
+                    <h1 className="heading">Set up your account</h1>
+                    <p className="footerText" style={{ textAlign: 'left', fontSize: '14px', marginTop: '-10px' }}>Choose a name, username, and password.</p>
+
+                    <div className="inputContainer">
+                        <div className="inputLabel">Name<span className="star">*</span></div>
+                        <Input
+                            className="userInput"
+                            type="text"
+                            value={signupName}
+                            onChange={(e) => setSignupName(e.target.value)}
+                        />
+                    </div>
+
+                    <div className="inputContainer">
+                        <div className="inputLabel">Username<span className="star">*</span></div>
+                        <div className="usernameField">
+                            <span className="usernameAt">@</span>
+                            <Input
+                                extrastyles={{
+                                    borderLeft: 'none', borderRight: 'none', borderRadius: '0px', borderTopRightRadius: '4px',
+                                    borderBottomRightRadius: '4px'
+                                }}
+                                className="userInput"
+                                type="text"
+                                placeholder="Username"
+                                value={signupUsername}
+                                onChange={(e) => {
+                                    setSignupUsername(e.target.value)
+                                    setUsernameTouched(true)
+                                }}
+                                onClick={() => setUsernameTouched(true)}
+                            />
+                        </div>
+
+                        {usernameTouched && signupUsername.length === 0 &&
+                            <ErrorMessage image='/rederror.png' text='Please fill out this field.' className='errorMessage' extrastyles={{ marginTop: '0px' }} />
+                        }
+                        {usernameTouched && signupUsername.length > 0 && checkUsernameAvailable(signupUsername) &&
+                            <p className="userSuccess"><img src='/greencheck.png' style={{ width: '15px' }} />Username is available</p>
+                        }
+
+                        <div className="suggestionUserRow">
+                            {!(usernameTouched && signupUsername.length > 0 && checkUsernameAvailable(signupUsername)) &&
+                                usernameSuggestions.map((element) => (
+                                    <button key={element} className="suggestionButton" onClick={() => setSignupUsername(element)}>
+                                        {element}
+                                    </button>
+                                ))}
+                        </div>
+                    </div>
+
+                    <div className="inputContainer">
+                        <div className="inputLabel">Password (optional)</div>
+                        <div className="inputWrapper">
+                            <Input
+                                className="userInput"
+                                type={showSignupPassword ? 'text' : 'password'}
+                                value={signupPassword}
+                                onChange={(e) => setSignupPassword(e.target.value)}
+                                onClick={() => setpasswordTouched(true)}
+                            />
+                            <Button className="eyeButton" img={!showSignupPassword ? "/visible.png" : "/invisible.png"} onClick={() => setShowSignupPassword(!showSignupPassword)} />
+                        </div>
+                        {signupPassword.length >= 0 && signupPassword.length < 8 && passwordTouched &&
+                            <ErrorMessage image='/rederror.png' text={`Please lengthen this text to 8 characters or more (you are currently using ${signupPassword.length} character${signupPassword.length === 1 ? '' : 's'}).`} className='errorMessage' extrastyles={{ marginTop: '0px', textAlign: 'left' }} />
+                        }
+                        <p className="hint">At least 8 characters.</p>
+                    </div>
+
+                    <Button
+                        text="Continue"
+                        className={signupName.length > 0 && checkUsernameAvailable(signupUsername) && (signupPassword.length === 0 || signupPassword.length >= 8) ? 'validBlackContinueButton' : 'invalidBlackContinueButton'}
+                        onClick={checkSetUpAccount}
+                        extrastyles={{ marginTop: '5px' }}
+                    />
+                </div>
+            }
+            {
+                showBirthday &&
+                <div className="overlay">
+                    <Button img="/whitearrow.png" className="backButton" onClick={() => setShowBirthday(false)} />
+                    <img className="xlogo" src="/xlogo.png" />
+                    <h1 className="heading">When's your birthday?</h1>
+
+                    <div className="birthdayRow">
+                        <div className="birthdaySelectGroup" style={{ flex: 2 }}>
+                            <div className="birthdaySelectLabel">Month</div>
+                            <select className="birthdaySelect" value={birthMonth} onChange={(e) => setBirthMonth(e.target.value)}>
+                                {months.map((element, index) => (
+                                    <option key={element} value={index + 1}>{element}</option>
+                                ))}
+                            </select>
+                            <img src="/whitexpand.png" className="birthdaySelectArrow" />
+                        </div>
+
+                        <div className="birthdaySelectGroup">
+                            <div className="birthdaySelectLabel">Day</div>
+                            <select className="birthdaySelect" value={birthDay} onChange={(e) => setBirthDay(e.target.value)}>
+                                {Array.from({ length: getDaysInMonth(birthMonth, birthYear) }, (_, index) => index + 1).map((element) => (
+                                    <option key={element} value={element}>{element}</option>
+                                ))}
+                            </select>
+                            <img src="/whitexpand.png" className="birthdaySelectArrow" />
+                        </div>
+
+                        <div className="birthdaySelectGroup">
+                            <div className="birthdaySelectLabel">Year</div>
+                            <select className="birthdaySelect" value={birthYear} onChange={(e) => setBirthYear(e.target.value)}>
+                                {Array.from({ length: 120 }, (_, index) => new Date().getFullYear() - index).map((element) => (
+                                    <option key={element} value={element}>{element}</option>
+                                ))}
+                            </select>
+                            <img src="/whitexpand.png" className="birthdaySelectArrow" />
+                        </div>
+                    </div>
+
+                    <p className="footerText" style={{ textAlign: 'left', fontSize: '13px' }}>
+                        This will not be shown publicly. Confirm your own age, even if this account is for a business, a pet, or something else.
+                    </p>
+
+                    <Button
+                        text="Continue"
+                        className={birthMonth && birthDay && birthYear ? 'validBlackContinueButton' : 'invalidBlackContinueButton'}
+                        onClick={birthMonth && birthDay && birthYear ? checkBirthday : () => { }}
+                        extrastyles={{ marginTop: '250px' }}
+                    />
+                </div>
+            }
+            {
+                showAgeBlocked &&
+                <div className="overlay">
+                    <img className="xlogo" src="/xlogo.png" />
+                    <h1 className="heading" style={{ textAlign: 'left' }}>Sorry, X is for users 13 and older</h1>
+                    <p className="footerText" style={{ textAlign: 'left', marginBottom: '385px', fontSize: '14px', marginTop: '15px' }}>
+                        The birthday you entered doesn't meet our minimum age requirements.
+                    </p>
+                </div>
+            }
         </div >
     )
 }

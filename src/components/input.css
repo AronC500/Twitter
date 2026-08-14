@@ -89,3 +89,15 @@
     color: rgba(113, 113, 122, 1);
 }
 
+
+
+
+.loginInput:-webkit-autofill,
+.loginInputInvalid:-webkit-autofill,
+.userInput:-webkit-autofill,
+.userInputInvalid:-webkit-autofill,
+.phoneInput:-webkit-autofill,
+.countrySearchInput:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px black inset;
+    -webkit-text-fill-color: white;
+}

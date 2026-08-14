@@ -1,0 +1,104 @@
+.post {
+    display: flex;
+    gap: 10px;
+    padding: 13px 20px 8px;
+    min-height:75px;
+    border: 1px solid rgb(65, 65, 69);
+    width:598px;
+
+}
+
+.postAvatar {
+    width: 43px;
+    height:43px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+
+.postBody {
+    flex: 1;
+    min-width: 0;
+}
+
+.postHeader {
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    height:25px;
+}
+.postHeader1 {
+    display:flex;
+    gap: 4px;
+
+}
+
+
+
+.postName {
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.postHandle, .postDot, .postTime {
+    color: rgba(113, 113, 122, 1);
+    font-size: 16px;
+}
+
+
+.postText {
+    color: white;
+    font-size: 15px;
+}
+
+
+
+.postStats {
+    display: flex;
+    justify-content: space-between;
+    width:100%;
+    margin-left:-5px;
+
+}
+
+.postStatsFirst {
+    display:flex;
+    gap:85px;
+
+
+}
+
+.postStatsSecond {
+    display:flex;
+
+
+
+}
+
+
+.statNumber {
+    color: rgba(113, 113, 122, 1);
+    font-size:14px;
+    margin-left:-5px;
+}
+
+.statInfo {
+    display:flex;
+    align-items:center;
+}
+.imgcontainer {
+    border: 1px solid rgb(65, 65, 69);
+    border-radius: 13px;
+    margin-bottom: 5px;
+
+}
+
+.postImage {
+    max-width: 543px;
+    max-height: 500px;
+    display: block;
+    border-radius: 13px;
+    object-fit: contain;
+}

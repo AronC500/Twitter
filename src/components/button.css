@@ -21,7 +21,7 @@
     width: 20px;
 }
 
-.validBlackContinueButton {
+.validBlackContinueButton, .notification {
     position: relative;
     display: flex;
     align-items: center;
@@ -120,7 +120,7 @@
     white-space: nowrap;
 }
 
-.passwordLink {
+.passwordLink, .notNow {
     position: absolute;
     top: 24px;
     right: 24px;
@@ -176,3 +176,120 @@
     margin-top: 5px;
     text-align: left;
 }
+
+
+
+
+
+.topic, .topicSelected {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    background-color: transparent;
+    border: 1px solid rgba(63, 63, 70, 1);
+    border-radius: 9999px;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 10px 16px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.topic:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.topicSelected {
+    background-color: rgba(113, 113, 122, 0.4);
+}
+
+
+.notification {
+    font-size:15px;
+}
+.notification img {
+    width:17px;
+    height:17px;
+}
+
+
+.notNow {
+    color: rgba(113, 113, 122, 1);
+}
+
+
+.changeProfilePic{
+    all:unset;
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 45px;
+    height: 45px; 
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 9999px;
+}
+
+.changeProfilePic:hover{
+    cursor:pointer;
+}
+
+.statButton, .chatButton,.repostButton,.heartButton, .bookmarkButton, .shareButton, .postHeader2 {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display:flex;
+    justify-content:center;
+    width: 35px;
+    height: 35px;  
+    align-items:center;
+    border-radius:50%;
+
+
+
+}
+
+.postHeader2 {
+    margin-top:5px;
+}
+
+
+
+
+
+.statButton img, .chatButton img,.repostButton img ,.heartButton img, .bookmarkButton img , .shareButton img
+{
+    width: 20px;
+    height: 20px;  
+
+}
+
+.statButton:hover {
+    color: rgb(29, 155, 240);
+}
+
+
+.postHeader2 img {
+    width: 14px;
+}
+
+
+
+
+.chatButton:hover, .statButton:hover, .shareButton:hover, .bookmarkButton:hover, .postHeader2:hover {
+    background-color:rgba(37, 120, 254, 0.15);
+
+}
+.repostButton:hover {
+    background-color:rgba(120, 255, 120, 0.1)
+
+
+
+}
+.heartButton:hover {
+    background-color:rgba(249, 41, 138, 0.15);
+
+
+}
+
