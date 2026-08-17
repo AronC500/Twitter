@@ -1,0 +1,108 @@
+import './rightpanel.css'
+import Button from './button.jsx'
+import Input from './input.jsx'
+
+function TrendItem({ context, topic }) {
+    return (
+        <Button className="trendItem">
+            <div className="trendItemText">
+                <span className="trendContext">{context}</span>
+                <span className="trendTopic">{topic}</span>
+            </div>
+            <img className="trendDots" src="/graydots.png" alt="" />
+        </Button>
+    )
+}
+function FollowItem({ avatarSrc, name, handle, followsYou, followingBack }) {
+    return (
+        <Button className="followItem">
+            <img className="followAvatar" src={avatarSrc} alt="" />
+            <div className="followText">
+                <span className="followName">{name}</span>
+                <div className="followHandleRow">
+                    <span className="followHandle">@{handle}{followsYou ? '...' : ''}</span>
+                    {followsYou && <span className="followsYouTag">Follows you</span>}
+                </div>
+            </div>
+            <Button
+                className={followingBack ? 'followBackButton' : 'followButton'}
+                text={followingBack ? 'Follow back' : 'Follow'}
+            />
+        </Button>
+    )
+}
+
+function NewsItem({ headline, meta, avatars }) {
+    return (
+        <Button className="newsItem">
+            <div className="newsHeadline">{headline}</div>
+            <div className="newsMetaRow">
+                <div className="newsAvatars">
+                    {avatars.map((src, index) => (
+                        <img key={index} className="newsAvatar" src={src} alt="" />
+                    ))}
+                </div>
+                <span className="newsMeta">{meta}</span>
+            </div>
+        </Button>
+    )
+}
+
+function RightPanel({ trends, suggestions, newsItems }) {
+    return (
+        <div className="rightPanel">
+            <div className="searchBarContainer">
+                <div className="searchBar">
+                    <img className="searchIcon" src="" alt="" />
+                    <Input className="searchInput" placeholder="Search" />
+                </div>
+            </div>
+
+
+            <div className="panelCard">
+                <div className="premiumBox">
+                    <h3 className="panelCardTitle">Subscribe to Premium</h3>
+                    <p className="panelCardText">
+                        Get rid of ads, see your analytics, boost your replies and unlock 20+ features.
+                    </p>
+                    <Button className="subscribeButton" text="Subscribe" />
+                </div>
+            </div>
+
+
+            <div className="panelCard">
+                <div className="panelCardHeader">
+                    <h3 className="panelCardTitle">Today's News</h3>
+                    <img className="panelCardClose" src="" alt="" />
+                </div>
+                {newsItems.map((item, index) => (
+                    <NewsItem key={index} {...item} />
+                ))}
+            </div>
+
+            <div className="panelCard">
+                <h3 className="panelCardTitle">What's happening</h3>
+                {trends.map((element, index) => (
+                    <TrendItem key={index} {...element} />
+                ))}
+                <div className="showMoreLink">Show more</div>
+            </div>
+
+            <div className="panelCard">
+                <h3 className="panelCardTitle">Who to follow</h3>
+                {suggestions.map((element, index) => (
+                    <FollowItem key={index} {...element} />
+                ))}
+                <div className="showMoreLink">Show more</div>
+            </div>
+            <div className="panelFooter">
+                <span>Terms</span> · <span>Privacy</span> · <span>Cookies</span> · <span>Accessibility</span><br />
+                <span>Ads Info</span> · <span>More</span> · <span>© 2026 Aron Corp.</span>
+            </div>
+
+
+        </div>
+    )
+}
+
+export default RightPanel

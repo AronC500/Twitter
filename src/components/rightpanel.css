@@ -1,0 +1,103 @@
+.rightPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 700px;
+    padding: 0px 30px;
+}
+
+.searchBar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: black;
+    border-radius: 9999px;
+    padding: 0px 16px;
+    border: 1px solid rgb(65, 65, 69);
+    height:42px;
+    margin-top:8px;
+
+}
+.searchBarContainer {
+    background-color:black;
+    width:100%;
+    position:sticky;
+    top:0;
+}
+.searchIcon {
+    width: 16px;
+    height: 16px;
+}
+
+
+.panelCard {
+    background-color: black;
+    border-radius: 17px;
+    padding: 16px 0;
+    box-sizing: border-box;
+    border: 1px solid rgb(65, 65, 69);
+
+
+}
+
+.panelCardTitle {
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0px;
+    padding: 0 16px;    
+    padding-bottom:15px;
+
+
+}
+
+
+.showMoreLink {
+    color: rgb(29, 155, 240);
+    font-size: 15.5px;
+    padding: 12px 16px 4px;
+    cursor: pointer;
+}
+
+.showMoreLink:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.panelFooter {
+    color: rgba(113, 113, 122, 1);
+    font-size: 11.5px;
+    line-height: 1.6;
+    padding-left:9px;
+
+}
+
+.panelFooter span {
+    padding:0px 7px;
+}
+
+.premiumBox {
+    display:flex;
+    flex-direction:column;
+
+}
+
+
+
+.panelCardText {
+    color: white;
+    font-size: 15px;
+    line-height: 1.35;
+    padding: 0 16px;
+}
+
+
+
+
+.panelCardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+

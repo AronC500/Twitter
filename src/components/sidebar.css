@@ -1,0 +1,29 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 12px 8px;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    width:500px;
+}
+
+.sidebarLogo {
+    width: 30px;
+    height: 30px;
+    margin: 8px 0 8px 12px;
+}
+
+.sidebarNav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+
+.sidebarIcon {
+    width: 24px;
+    height: 24px;
+}
+
