@@ -7,15 +7,14 @@ function Sidebar({ activeLabel = 'Home', profileName, profileHandle, profileAvat
     const navigate = useNavigate()
     const navItems = [
         { label: 'Home', img: '', onClick: () => navigate('/home') },
-        { label: 'Explore', img: '' },
+        { label: 'Explore', img: '', onClick: () => navigate('/explore') },
         { label: 'Notifications', img: '' },
         { label: 'Chat', img: '', onClick: () => navigate('/chat') },
         { label: 'Grok', img: '' },
-        { label: 'Bookmarks', img: '' },
-        { label: 'Creator Studio', img: '' },
+        { label: 'History', img: '', onClick: () => navigate('/history') },
         { label: 'Premium', img: '' },
-        { label: 'Profile', img: '' },
-        { label: 'More', img: '' },
+        { label: 'Profile', img: '', onClick: () => navigate('/profile') },
+        { label: 'Settings', img: '' },
     ]
     return (
         <div className="sidebar">

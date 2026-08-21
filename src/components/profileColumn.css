@@ -1,0 +1,143 @@
+.profileColumn {
+    width: 598px;
+    border-left: 1px solid rgb(65, 65, 69);
+    border-right: 1px solid rgb(65, 65, 69);
+}
+
+.profileHeader {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 5px 20px;
+    position: sticky;
+    top: 0;
+    background-color: black;
+    z-index: 2;
+}
+
+.profileBackIcon {
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+.profileHeaderText {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    gap: 4px;
+}
+
+.profileHeaderName {
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.profileHeaderCount {
+    color: rgba(113, 113, 122, 1);
+    font-size: 13px;
+}
+
+.profileHeaderIcons {
+    display: flex;
+    gap: 20px;
+}
+
+.profileHeaderIcons img {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.profileBannerWrap {
+    position: relative;
+}
+
+.profileBanner {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.profileAvatar {
+    position: absolute;
+    bottom: -66px;
+    left: 18px;
+    width: 133px;
+    height: 133px;
+    border-radius: 50%;
+    border: 4px solid black;
+    object-fit: cover;
+    box-sizing: border-box;
+}
+
+
+.profileInfo {
+    padding: 85px 15px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.profileNameRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profileName {
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.profileHandle {
+    color: rgba(113, 113, 122, 1);
+    font-size: 15px;
+}
+
+.profileBio {
+    color: white;
+    font-size: 15px;
+    line-height: 1.4;
+    margin: 8px 0 0 0;
+}
+
+.profileBioLink {
+    color: rgb(29, 155, 240);
+    text-decoration: none;
+}
+
+.profileBioLink:hover {
+    text-decoration: underline;
+}
+
+
+
+.profileStatsRow {
+    display: flex;
+    gap: 20px;
+    color: rgba(113, 113, 122, 1);
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.profileStatsRow strong {
+    color: white;
+    font-weight: bold;
+}
+
+.profileTabs {
+    display: flex;
+    margin-top: 16px;
+}
+
+.profilePostList {
+    display: flex;
+    flex-direction: column;
+}

@@ -14,16 +14,19 @@
     border-radius: 9999px;
     padding: 0px 16px;
     border: 1px solid rgb(65, 65, 69);
-    height:42px;
-    margin-top:8px;
+    height: 42px;
+    margin-top: 8px;
 
 }
+
 .searchBarContainer {
-    background-color:black;
-    width:100%;
-    position:sticky;
-    top:0;
+    width: 360px;
+
+    background-color: black;
+    position: sticky;
+    top: 0;
 }
+
 .searchIcon {
     width: 16px;
     height: 16px;
@@ -36,6 +39,7 @@
     padding: 16px 0;
     box-sizing: border-box;
     border: 1px solid rgb(65, 65, 69);
+    width: 360px;
 
 
 }
@@ -45,8 +49,8 @@
     font-size: 20px;
     font-weight: 800;
     margin: 0px;
-    padding: 0 16px;    
-    padding-bottom:15px;
+    padding: 0 16px;
+    padding-bottom: 15px;
 
 
 }
@@ -67,17 +71,17 @@
     color: rgba(113, 113, 122, 1);
     font-size: 11.5px;
     line-height: 1.6;
-    padding-left:9px;
+    padding-left: 9px;
 
 }
 
 .panelFooter span {
-    padding:0px 7px;
+    padding: 0px 7px;
 }
 
 .premiumBox {
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
 
 }
 
@@ -99,5 +103,11 @@
     justify-content: space-between;
 }
 
+hr {
+    width: 345px;
+    border: 1px solid rgb(65, 65, 69);
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-bottom: 0px;
 
-
+}
