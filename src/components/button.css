@@ -14,14 +14,15 @@
     padding-bottom: 13px;
     font-weight: bold;
     font-size: 15px;
-  }
-  
+}
+
 .continueButton img {
     height: 20px;
     width: 20px;
 }
 
-.validBlackContinueButton, .notification {
+.validBlackContinueButton,
+.notification {
     position: relative;
     display: flex;
     align-items: center;
@@ -54,7 +55,7 @@
     background-color: rgb(38, 38, 39);
     color: rgb(98, 98, 108);
     border: none;
-    font-weight:bold;
+    font-weight: bold;
     font-size: 17px;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -75,11 +76,11 @@
     justify-content: center;
     padding: 8px;
     border-radius: 999px;
-  }
+}
 
 .backButton img {
-    width:25px;
-    height:25px;
+    width: 25px;
+    height: 25px;
 }
 
 .backButton:hover {
@@ -94,7 +95,7 @@
     cursor: pointer;
     color: rgba(113, 113, 122, 1);
     font-size: 16px;
-    top:50%;
+    top: 50%;
     transform: translateY(-45%);
 
 }
@@ -102,8 +103,8 @@
 
 
 .eyeButton img {
-    width:18px;
-    height:20px;
+    width: 18px;
+    height: 20px;
 }
 
 
@@ -120,7 +121,8 @@
     white-space: nowrap;
 }
 
-.passwordLink, .notNow {
+.passwordLink,
+.notNow {
     position: absolute;
     top: 24px;
     right: 24px;
@@ -129,8 +131,8 @@
     font-size: 14px;
     text-decoration: none;
     cursor: pointer;
-    background-color:transparent;
-    border:none;
+    background-color: transparent;
+    border: none;
 }
 
 .forgot {
@@ -139,9 +141,9 @@
     font-size: 14px;
     text-decoration: none;
     cursor: pointer;
-    background-color:transparent;
-    border:none;
-    padding:0;
+    background-color: transparent;
+    border: none;
+    padding: 0;
 
 
 }
@@ -181,7 +183,8 @@
 
 
 
-.topic, .topicSelected {
+.topic,
+.topicSelected {
     display: flex;
     align-items: center;
     gap: 9px;
@@ -206,11 +209,12 @@
 
 
 .notification {
-    font-size:15px;
+    font-size: 15px;
 }
+
 .notification img {
-    width:17px;
-    height:17px;
+    width: 17px;
+    height: 17px;
 }
 
 
@@ -219,49 +223,59 @@
 }
 
 
-.changeProfilePic{
-    all:unset;
+.changeProfilePic {
+    all: unset;
     position: absolute;
     top: 47%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 45px;
-    height: 45px; 
+    height: 45px;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 9999px;
 }
 
-.changeProfilePic:hover{
-    cursor:pointer;
+.changeProfilePic:hover {
+    cursor: pointer;
 }
 
-.statButton, .chatButton,.repostButton,.heartButton, .bookmarkButton, .shareButton, .postHeader2 {
+.statButton,
+.chatButton,
+.repostButton,
+.heartButton,
+.bookmarkButton,
+.shareButton,
+.postHeader2 {
     background: none;
     border: none;
     cursor: pointer;
-    display:flex;
-    justify-content:center;
+    display: flex;
+    justify-content: center;
     width: 35px;
-    height: 35px;  
-    align-items:center;
-    border-radius:50%;
+    height: 35px;
+    align-items: center;
+    border-radius: 50%;
 
 
 
 }
 
 .postHeader2 {
-    margin-top:5px;
+    margin-top: 5px;
 }
 
 
 
 
 
-.statButton img, .chatButton img,.repostButton img ,.heartButton img, .bookmarkButton img , .shareButton img
-{
+.statButton img,
+.chatButton img,
+.repostButton img,
+.heartButton img,
+.bookmarkButton img,
+.shareButton img {
     width: 20px;
-    height: 20px;  
+    height: 20px;
 
 }
 
@@ -277,19 +291,503 @@
 
 
 
-.chatButton:hover, .statButton:hover, .shareButton:hover, .bookmarkButton:hover, .postHeader2:hover {
-    background-color:rgba(37, 120, 254, 0.15);
+.chatButton:hover,
+.statButton:hover,
+.shareButton:hover,
+.bookmarkButton:hover,
+.postHeader2:hover {
+    background-color: rgba(37, 120, 254, 0.15);
 
 }
+
 .repostButton:hover {
-    background-color:rgba(120, 255, 120, 0.1)
-
-
-
+    background-color: rgba(120, 255, 120, 0.1)
 }
+
 .heartButton:hover {
-    background-color:rgba(249, 41, 138, 0.15);
+    background-color: rgba(249, 41, 138, 0.15);
 
 
 }
 
+
+
+.subscribeButton {
+    background-color: rgb(29, 155, 240);
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    width: fit-content;
+    padding: 10px 18px;
+    margin-left: 16px;
+    font-weight: bold;
+    font-size: 14.5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+
+.sidebarItem,
+.sidebarItemActive {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 12px 15px;
+    padding-right: 30px;
+    border-radius: 9999px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    width: 90%;
+}
+
+.sidebarItem:hover,
+.sidebarItemActive:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebarItemActive {
+    font-weight: bold;
+}
+
+.sidebarPostButton {
+    margin: 16px 0;
+    width: 90%;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 9999px;
+    padding: 15px 0;
+    font-weight: bold;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+
+
+.sidebarProfile {
+    all: unset;
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 10px;
+    padding-right: 15px;
+    border-radius: 9999px;
+    cursor: pointer;
+}
+
+.sidebarProfile:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebarProfileAvatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.sidebarProfileText {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    gap: 3px;
+}
+
+.sidebarProfileName {
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.sidebarProfileHandle {
+    color: rgba(113, 113, 122, 1);
+    font-size: 15px;
+}
+
+.sidebarProfileDots {
+    width: 16px;
+    height: 16px;
+}
+
+
+
+
+.trendItem {
+    all: unset;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 12px 16px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.trendItem:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.trendItemText {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.trendContext {
+    color: rgba(113, 113, 122, 1);
+    font-size: 13px;
+    padding-bottom: 3px;
+}
+
+.trendTopic {
+    color: white;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+
+
+.trendDots {
+    width: 14px;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+
+.followItem {
+    all: unset;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.followItem:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.followAvatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.followText {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    gap: 4px;
+}
+
+.followName {
+    color: white;
+    font-weight: bold;
+    font-size: 14.5px;
+}
+
+.followHandleRow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.followHandle {
+    color: rgba(113, 113, 122, 1);
+    font-size: 14.5px;
+}
+
+.followsYouTag {
+    background-color: rgb(32, 35, 39);
+    color: rgba(113, 113, 122, 1);
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.followButton,
+.followBackButton {
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 9999px;
+    padding: 8px 16px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+
+.newsItem {
+    all: unset;
+    padding: 10px 16px;
+    width: 100%;
+    box-sizing: border-box;
+
+
+
+}
+
+.newsItem:hover {
+    cursor: pointer;
+}
+
+.newsHeadline {
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.3;
+    margin-bottom: 6px;
+}
+
+.newsMetaRow {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.newsAvatars {
+    display: flex;
+}
+
+.newsAvatar {
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: -10px;
+    border: 2px solid rgb(20, 20, 20);
+}
+
+.newsMeta {
+    color: rgba(113, 113, 122, 1);
+    font-size: 13px;
+}
+
+
+
+.historyTabs {
+    display: flex;
+}
+
+.historyTab,
+.historyTabActive {
+    all: unset;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: rgba(113, 113, 122, 1);
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    border-bottom: 1px solid rgb(65, 65, 69);
+}
+
+.historyTabIcon {
+    width: 18px;
+    height: 18px;
+}
+
+.historyTabActive {
+    color: white;
+
+}
+
+.historyTabsInner {
+    width: fit-content;
+    padding-top: 18px;
+    padding-bottom: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 4px solid transparent;
+    justify-content: center;
+}
+
+.historyTabActive .historyTabsInner {
+    border-bottom: 4px solid rgb(29, 155, 240);
+}
+
+.historyTab:hover,
+.historyTabActive:hover {
+    background-color: rgba(255, 255, 255, 0.1)
+}
+
+.likesInfoButton {
+    all: unset;
+}
+
+.likesModalClose {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.likesModalClose:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.likesModalClose img {
+    width: 24px;
+
+}
+
+
+.likesModalButton {
+    width: 310px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 9999px;
+    padding: 17px 0;
+    font-weight: bold;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+
+.feedTab:hover,
+.feedTabActive:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.feedTab,
+.feedTabActive {
+    all: unset;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    color: rgba(113, 113, 122, 1);
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    border-bottom: 1px solid rgb(65, 65, 69);
+}
+
+.feedTabInner {
+    padding-bottom: 14px;
+}
+
+.feedTabActive .feedTabInner {
+    color: white;
+    border-bottom: 4px solid rgb(29, 155, 240);
+}
+
+
+.profileTab,
+.profileTabActive {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding-top: 16px;
+    color: rgba(113, 113, 122, 1);
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    border-bottom: 1px solid rgb(65, 65, 69);
+}
+
+.profileTabInner {
+    padding-bottom: 16px;
+}
+
+.profileTabActive .profileTabInner {
+    color: white;
+    border-bottom: 4px solid rgb(29, 155, 240);
+}
+
+
+.editProfileButton {
+    position: absolute;
+    bottom: -48px;
+    right: 18px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgb(83, 100, 113);
+    border-radius: 9999px;
+    padding: 8px 16px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.editProfileButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+
+
+.getVerifiedButton {
+    all: unset;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid rgb(83, 100, 113);
+    padding: 3px 13px;
+
+}
+
+.getVerifiedButton img {
+    width: 17px;
+}
+
+
+.getVerifiedButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+.profileJoined {
+    all: unset;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(113, 113, 122, 1);
+    font-size: 15px;
+    margin-top: 8px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.profileJoined:hover {
+    text-decoration: underline;
+}
+
+.profileJoinedArrow {
+    transform: scale(0.75) rotate(-90deg);
+}
+
+.profileJoined img {
+    width: 20px;
+}
