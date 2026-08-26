@@ -8,13 +8,13 @@ function Sidebar({ activeLabel = 'Home', profileName, profileHandle, profileAvat
     const navItems = [
         { label: 'Home', img: '', onClick: () => navigate('/home') },
         { label: 'Explore', img: '', onClick: () => navigate('/explore') },
-        { label: 'Notifications', img: '' },
+        { label: 'Notifications', img: '', onClick: () => navigate('/notifications') },
         { label: 'Chat', img: '', onClick: () => navigate('/chat') },
-        { label: 'Grok', img: '' },
+        { label: 'Grok', img: '', onClick: () => navigate('/grok') },
         { label: 'History', img: '', onClick: () => navigate('/history') },
-        { label: 'Premium', img: '' },
+        { label: 'Premium', img: '', onClick: () => navigate('/premium', { state: { activeLabel } }) },
         { label: 'Profile', img: '', onClick: () => navigate('/profile') },
-        { label: 'Settings', img: '' },
+        { label: 'Settings', img: '', onClick: () => navigate('/settings') },
     ]
     return (
         <div className="sidebar">
@@ -22,17 +22,11 @@ function Sidebar({ activeLabel = 'Home', profileName, profileHandle, profileAvat
 
             <nav className="sidebarNav">
                 {navItems.map(item => (
-                    <div
-
-                        key={item.label}
-                        className="sidebarItemHitbox"
-                        onClick={item.onClick}
-                    >
-                        <Button className={item.label === activeLabel ? 'sidebarItemActive' : 'sidebarItem'}>
-                            <img className="sidebarIcon" src={item.img} alt="" />
-                            <span>{item.label}</span>
-                        </Button>
-                    </div>
+                    <Button key={item.label}
+                        className={item.label === activeLabel ? 'sidebarItemActive' : 'sidebarItem'} onClick={item.onClick}>
+                        <img className="sidebarIcon" src={item.img} alt="" />
+                        <span>{item.label}</span>
+                    </Button>
                 ))}
             </nav>
 

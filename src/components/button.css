@@ -791,3 +791,255 @@
 .profileJoined img {
     width: 20px;
 }
+
+
+
+
+.notificationTab,
+.notificationTabActive {
+    all: unset;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: rgba(113, 113, 122, 1);
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    border-bottom: 1px solid rgb(65, 65, 69);
+}
+
+.notificationTabActive {
+    color: white;
+}
+
+.notificationTabsInner {
+    width: fit-content;
+    padding-top: 18px;
+    padding-bottom: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 4px solid transparent;
+    justify-content: center;
+}
+
+.notificationTabActive .notificationTabsInner {
+    border-bottom: 4px solid rgb(29, 155, 240);
+}
+
+.notificationTab:hover,
+.notificationTabActive:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+
+.grokActionButton {
+    all: unset;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: black;
+    border: 1px solid rgb(47, 51, 54);
+    color: rgb(182, 185, 188);
+    border-radius: 50%;
+    padding: 10px 13px;
+    font-size: 13.5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.grokEnterButton {
+    all: unset;
+    cursor: pointer;
+    width: 40px;
+    height: 35px;
+    background-color: white;
+    border-radius: 9999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grokFullscreenButton {
+    all: unset;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    padding: 5px;
+}
+
+.grokFullscreenButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.grokFullscreenButton img {
+    width: 20px;
+    height: 20px;
+}
+
+.grokActionButton:hover {
+    background-color: rgb(255, 255, 255, 0.1);
+}
+
+.grokActionButton img {
+    width: 18px;
+    height: 18px;
+}
+
+
+.grokAttachIcon {
+    all: unset;
+    width: 20px;
+    height: 18px;
+    cursor: pointer;
+    border-radius: 9999px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.grokAttachIcon:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.grokHistory {
+    all: unset;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 15px;
+    height: 35px;
+    padding: 0px 20px;
+    cursor: pointer;
+}
+
+.grokHistory:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+
+.settingsItem,
+.settingsItemActive {
+    all: unset;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-right: 2px solid transparent;
+}
+
+.settingsItem:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.settingsItemActive {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-right: 2px solid rgb(29, 155, 240);
+}
+
+.settingsItemArrow,
+.settingsDetailArrow {
+    width: 20px;
+    height: 20px;
+    transform: scale(0.75) rotate(-90deg);
+
+}
+
+
+
+.settingsDetailColumn {
+    box-sizing: border-box;
+    width: 598px;
+    border-right: 1px solid rgb(65, 65, 69);
+
+}
+
+.settingsDetailTitle {
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0px;
+    padding: 16px 20px;
+
+
+}
+
+.helparrow {
+    width: 16px;
+    height: 16px;
+    padding-right: 4px;
+}
+
+.settingsDetailIntro {
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 13px;
+    margin: 0px;
+    color: rgba(113, 113, 122, 1);
+    font-size: 13.5px;
+    max-width: 550px;
+}
+
+.settingsDetailList {
+    display: flex;
+    flex-direction: column;
+}
+
+.settingsDetailItem {
+    all: unset;
+    height: 72px;
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    padding-right: 16px;
+    padding-left: 35px;
+    cursor: pointer;
+    align-items: center;
+}
+
+.settingsDetailItem:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+
+
+}
+
+.settingsDetailIcon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.settingsDetailText {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+}
+
+.settingsDetailItemTitle {
+    color: white;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.settingsDetailItemDescription {
+    color: rgba(113, 113, 122, 1);
+    font-size: 13px;
+}
