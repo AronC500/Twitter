@@ -6,6 +6,11 @@ import Chat from './Chat.jsx'
 import History from './History.jsx'
 import Profile from './Profile.jsx'
 import Explore from './Explore.jsx'
+import Notifications from './Notifications.jsx'
+import Grok from './Grok.jsx'
+import Premium from './Premium.jsx'
+import Setting from './Setting.jsx'
+import Help from './Help.jsx'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
@@ -20,6 +25,15 @@ createRoot(document.getElementById('root')).render(
         <Route path='/history' element={<History />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/explore' element={<Explore />} />
+        <Route path='/notifications' element={<Notifications />} />
+        <Route path='/grok' element={<Grok />} />
+        <Route path='/premium' element={<Premium />} />
+        <Route path='/settings' element={<Setting />} >
+          <Route path='help' element={<Help />} />
+        </Route>
+
+
+
 
       </Routes>
     </BrowserRouter>

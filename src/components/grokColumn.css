@@ -1,0 +1,79 @@
+.grokColumn {
+    min-width: 970px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    border-left: 1px solid rgb(65, 65, 69);
+    border-right: 1px solid rgb(65, 65, 69);
+    display: flex;
+    flex-direction: column;
+}
+
+.grokTopBar {
+    display: flex;
+    padding: 15px;
+    justify-content: space-between;
+
+}
+
+
+
+.grokCenter {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 17px;
+    padding: 0 20px 75px;
+    box-sizing: border-box;
+}
+
+.grokLogoRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.grokLogoIcon {
+    width: 40px;
+    height: 40px;
+}
+
+.grokLogoText {
+    color: rgba(230, 230, 235, 0.9);
+    font-size: 34px;
+    font-weight: 600;
+}
+
+.grokInputBar {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background-color: rgb(22, 24, 28);
+    border-radius: 999px;
+    padding-right: 13px;
+    padding-left: 10px;
+    width: 760px;
+    max-width: 90vw;
+    box-sizing: border-box;
+}
+
+.grokInput {
+    background: none;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 16.75px;
+    width: 100%;
+    height: 60px;
+    padding: 0px;
+}
+
+.grokInput::placeholder {
+    color: rgba(113, 113, 122, 1);
+}
+
+.grokActionRow {
+    display: flex;
+    gap: 12px;
+}

@@ -1,0 +1,32 @@
+.notificationColumn {
+    border-left: 1px solid rgb(65, 65, 69);
+    border-right: 1px solid rgb(65, 65, 69);
+}
+
+.notificationHeader {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 20px;
+    position: sticky;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.notificationTitle {
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0;
+    flex: 1;
+}
+
+.notificationSearchIcon {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.notificationTabs {
+    display: flex;
+}

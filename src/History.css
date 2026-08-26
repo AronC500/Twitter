@@ -1,0 +1,71 @@
+.historyColumn {
+    border-left: 1px solid rgb(65, 65, 69);
+    border-right: 1px solid rgb(65, 65, 69);
+
+
+
+}
+
+.historyHeader {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 20px;
+    position: sticky;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.historyBackIcon {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.historyTitle {
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0;
+    flex: 1;
+}
+
+.historySearchIcon {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+
+.likesModalOverlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(91, 112, 131, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.likesModal {
+    position: relative;
+    background-color: black;
+    border-radius: 16px;
+    padding: 75px 140px;
+    box-sizing: border-box;
+
+}
+
+.likesModalTitle {
+    color: white;
+    font-size: 26px;
+    font-weight: 800;
+    margin: 8px 0 12px 0;
+}
+
+.likesModalText {
+    color: rgba(113, 113, 122, 1);
+    font-size: 15px;
+    line-height: 1.4;
+    margin: 0 0 28px 0;
+}

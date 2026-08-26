@@ -1,0 +1,141 @@
+.settingsLayout {
+    display: flex;
+
+}
+
+.settingsListColumn {
+    width: 448px;
+    border-right: 1px solid rgb(65, 65, 69);
+    border-left: 1px solid rgb(65, 65, 69);
+    box-sizing: border-box;
+
+}
+
+
+.settingsTitle {
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-top: 16px;
+    margin: 0px;
+
+}
+
+
+.settingsList {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.settingsItem,
+.settingsItemActive {
+    all: unset;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-right: 2px solid transparent;
+}
+
+.settingsItem:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.settingsItemActive {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-right: 2px solid rgb(29, 155, 240);
+}
+
+.settingsItemArrow,
+.settingsDetailArrow {
+    width: 20px;
+    height: 20px;
+    transform: scale(0.75) rotate(-90deg);
+
+}
+
+.settingsDetailColumn {
+    box-sizing: border-box;
+    width: 598px;
+    border-right: 1px solid rgb(65, 65, 69);
+
+}
+
+.settingsDetailTitle {
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0px;
+    padding: 16px 20px;
+
+
+}
+
+.helparrow {
+    width: 16px;
+    height: 16px;
+    padding-right: 4px;
+}
+
+.settingsDetailIntro {
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 13px;
+    margin: 0px;
+    color: rgba(113, 113, 122, 1);
+    font-size: 13.5px;
+    max-width: 550px;
+}
+
+.settingsDetailList {
+    display: flex;
+    flex-direction: column;
+}
+
+.settingsDetailItem {
+    all: unset;
+    height: 72px;
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    padding-right: 16px;
+    padding-left: 35px;
+    cursor: pointer;
+    align-items: center;
+}
+
+.settingsDetailItem:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+
+
+}
+
+.settingsDetailIcon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.settingsDetailText {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+}
+
+.settingsDetailItemTitle {
+    color: white;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.settingsDetailItemDescription {
+    color: rgba(113, 113, 122, 1);
+    font-size: 13px;
+}
