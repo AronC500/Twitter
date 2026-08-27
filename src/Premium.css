@@ -1,0 +1,363 @@
+.premiumSignup {
+    background-color: black;
+    min-height: 100vh;
+    padding-bottom: 220px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.premiumTopBar {
+    width: 100%;
+    padding: 15px 0 0 15px;
+    box-sizing: border-box;
+}
+
+.premiumCloseButton {
+    all: unset;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.premiumCloseButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+
+}
+
+.premiumCloseButton img {
+    width: 25px;
+    height: 25px;
+}
+
+.premiumHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0px 20px 25px;
+}
+
+.premiumCheckIcon {
+    width: 72px;
+    height: 72px;
+
+}
+
+.premiumHeadline {
+    color: white;
+    font-size: 27px;
+    font-weight: 800;
+    max-width: 700px;
+    margin-bottom: 30px;
+
+
+}
+
+.premiumHeadlineBlue {
+    color: rgb(29, 155, 240);
+}
+
+.billingToggle {
+    display: flex;
+    background-color: rgba(15, 20, 25, 1.00);
+    border-radius: 9999px;
+    padding: 4px;
+    width: 315px;
+
+}
+
+.billingOption,
+.billingOptionActive {
+    all: unset;
+    flex: 1;
+    text-align: center;
+    padding: 14px 0;
+    border-radius: 9999px;
+    color: rgba(230, 230, 235, 0.8);
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.billingOptionActive {
+    background-color: white;
+    color: black;
+}
+
+.planCards {
+    display: flex;
+    gap: 10px;
+
+
+}
+
+.planCard,
+.planCardActive {
+    all: unset;
+    background-color: rgb(21, 24, 28);
+    border: 2px solid transparent;
+    border-radius: 20px;
+    padding: 22px 23px;
+    width: 370px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.planCardActive {
+    border: 2px solid rgb(29, 155, 240);
+}
+
+.planCardTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 13px;
+}
+
+.planCardName {
+    color: white;
+    font-size: 21px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.planCardBadge {
+    color: rgb(29, 155, 240);
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.planCardPrice {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    padding-bottom: 5px;
+}
+
+.planCardPriceValue {
+    color: white;
+    font-size: 35px;
+    font-weight: 400;
+}
+
+.planCardPriceUnit {
+    color: rgba(113, 113, 122, 1);
+    font-size: 16.5px;
+}
+
+.planCardSub {
+    color: rgba(113, 113, 122, 1);
+    font-size: 16px;
+
+}
+
+.planFeatureList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 18px
+}
+
+.planFeatureRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.planFeatureIcon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.planFeatureLabel {
+    color: white;
+    font-size: 16px;
+    flex: 1;
+}
+
+
+.compareSectionHeading {
+    padding: 80px 40px 30px;
+    color: white;
+    font-size: 24px;
+    font-weight: 800;
+    margin: 0;
+    text-align: left;
+    width: 945px;
+}
+
+
+.compareCard {
+    background-color: rgb(21, 24, 28);
+    border-radius: 16px;
+    margin: 0 60px 24px;
+    padding: 0px 23px;
+    width: 900px;
+}
+
+.compareRow,
+.compareRowHeader {
+    display: flex;
+    align-items: center;
+}
+
+
+
+.compareRowHeader .compareColHeading:first-child {
+    flex: 1.4;
+}
+
+.compareRowHeader .compareColHeading:not(:first-child) {
+    text-align: center;
+}
+
+.compareColHeading {
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: left;
+    flex: 1;
+    padding-top: 20px;
+    padding-bottom: 32px;
+}
+
+.compareLabel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    flex: 1.4;
+    padding-bottom: 30px;
+
+
+}
+
+
+.compareCol {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+.compareCheck {
+    width: 20px;
+    height: 20px;
+}
+
+.compareX {
+    width: 16px;
+    height: 16px;
+}
+
+.compareText {
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.premiumFooter {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    border-top: 1px solid rgb(32, 35, 39);
+    padding: 15px 0px;
+    box-sizing: border-box;
+    display: grid;
+    gap: 12px 24px;
+    justify-content: center;
+}
+
+.premiumFooterInner {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    width: 800px;
+}
+
+.premiumFooterInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-shrink: 0;
+    height: 100%;
+}
+
+.premiumFooterPlanName {
+    color: white;
+    font-size: 21px;
+    font-weight: 800;
+    padding-bottom: 3px;
+}
+
+.premiumFooterPriceRow {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.premiumFooterPriceValue {
+    color: white;
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.premiumFooterPriceUnit {
+    color: rgba(113, 113, 122, 1);
+    font-size: 16px;
+}
+
+.premiumFooterNote {
+    color: rgba(113, 113, 122, 1);
+    font-size: 16px;
+    width: 300px;
+}
+
+.premiumFooterAction {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 500px;
+}
+
+.premiumFooterSubscribeButton {
+    all: unset;
+    background-color: white;
+    color: black;
+    border-radius: 9999px;
+    padding: 17px 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 17px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.premiumFooterLegal {
+    color: rgb(182, 185, 188);
+    font-size: 13px;
+    margin: 0;
+    border-radius: 8px;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    border: 1px solid rgb(89, 93, 98);
+}
+
+.premiumFooterLink {
+    color: rgba(200, 200, 205, 1);
+    text-decoration: underline;
+}
