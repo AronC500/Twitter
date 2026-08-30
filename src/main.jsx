@@ -28,9 +28,9 @@ createRoot(document.getElementById('root')).render(
         <Route path='/notifications' element={<Notifications />} />
         <Route path='/grok' element={<Grok />} />
         <Route path='/premium' element={<Premium />} />
-        <Route path='/settings' element={<Setting />} >
-          <Route path='help' element={<Help />} />
-        </Route>
+        <Route path='/settings' element={<Setting />} />
+        <Route path='/help' element={<Help />} />
+
 
 
 

@@ -1,0 +1,162 @@
+.chatList {
+    width: 410px;
+    height: 100vh;
+    box-sizing: border-box;
+    border-right: 1px solid rgb(65, 65, 69);
+    border-left: 1px solid rgb(65, 65, 69);
+
+    overflow-y: auto;
+}
+
+.chatListHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 20px;
+}
+
+.chatListTitle {
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.chatListHeaderActions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chatListSearchIcon {
+    height: 20px;
+    width: 20px;
+}
+
+.chatListSearchBar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: rgb(25, 27, 30);
+    border-radius: 9999px;
+    margin: 0 15px 12px;
+    margin-bottom: 20px;
+    padding-left: 15px;
+}
+
+
+.chatListItems {
+    display: flex;
+    flex-direction: column;
+}
+
+.chatListItem,
+.chatListItemActive {
+    display: flex;
+    gap: 15px;
+    padding: 0px 17px;
+    cursor: pointer;
+    background-color: black;
+    align-items: center;
+
+}
+
+.chatListItemActive {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatListItemActive .chatListBody {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+.chatListItemActive:hover,
+.chatListItem:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+
+}
+
+.chatListAvatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.chatListBody {
+    flex: 1;
+    min-width: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 18px 0px;
+
+}
+
+.chatListItem:hover .chatListBody,
+.chatListItemActive:hover .chatListBody {
+    border-bottom: 1px solid transparent;
+}
+
+.chatListTopRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chatListName {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chatListVerified {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+.chatListTime {
+    color: rgba(113, 113, 122, 1);
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-left: 8px;
+}
+
+.chatListBottomRow {
+    display: flex;
+    align-items: center;
+    margin-top: 7px;
+
+}
+
+.chatListPreview {
+    color: rgba(113, 113, 122, 1);
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+}
+
+.chatListMuted {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+.chatListUnreadDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgb(29, 155, 240);
+    flex-shrink: 0;
+}

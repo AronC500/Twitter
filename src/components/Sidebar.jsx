@@ -17,28 +17,37 @@ function Sidebar({ activeLabel = 'Home', profileName, profileHandle, profileAvat
         { label: 'Settings', img: '', onClick: () => navigate('/settings') },
     ]
     return (
-        <div className="sidebar">
-            <img className="sidebarLogo" src="" alt="" />
+        <div className="sidebar" style={activeLabel === 'Chat' ? { marginRight: '3px' } : {}}>
+            <Button className="homeLogo" onClick={() => navigate('/home')}>
+                <img className="sidebarLogo" src="/xlogo.png" alt="" />
+            </Button>
 
             <nav className="sidebarNav">
                 {navItems.map(item => (
                     <Button key={item.label}
-                        className={item.label === activeLabel ? 'sidebarItemActive' : 'sidebarItem'} onClick={item.onClick}>
+                        className={item.label === activeLabel ? 'sidebarItemActive' : 'sidebarItem'} onClick={item.onClick} extrastyles={activeLabel === 'Chat' ? { paddingRight: '15px' } : {}}>
                         <img className="sidebarIcon" src={item.img} alt="" />
-                        <span>{item.label}</span>
+                        {activeLabel !== 'Chat' && <span>{item.label}</span>}
                     </Button>
                 ))}
             </nav>
 
-            <Button className="sidebarPostButton" text="Post" />
-
-            <Button className="sidebarProfile">
+            <Button className="sidebarPostButton" text={activeLabel === 'Chat' ? "" : "Post"} extrastyles={activeLabel === 'Chat' ? { marginRight: '0px', padding: '11px' } : {}}>
+                {activeLabel === 'Chat' &&
+                    <img src="/premiumicon.png" alt="" />
+                }
+            </Button>
+            <Button className="sidebarProfile" extrastyles={activeLabel === 'Chat' ? { width: 'auto', paddingRight: '10px' } : {}}>
                 <img className="sidebarProfileAvatar" src={profileAvatar} alt="" />
-                <div className="sidebarProfileText">
-                    <span className="sidebarProfileName">{profileName}</span>
-                    <span className="sidebarProfileHandle">@{profileHandle}</span>
-                </div>
-                <img className="sidebarProfileDots" src="/whitedot.png" alt="" />
+                {activeLabel !== 'Chat' &&
+                    <>
+                        <div className="sidebarProfileText">
+                            <span className="sidebarProfileName">{profileName}</span>
+                            <span className="sidebarProfileHandle">@{profileHandle}</span>
+                        </div>
+                        <img className="sidebarProfileDots" src="/whitedot.png" alt="" />
+                    </>
+                }
             </Button>
         </div>
     )

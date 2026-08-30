@@ -110,7 +110,7 @@ function SettingsColumn() {
             navigate('/premium', { state: { activeLabel: 'settings' } })
         }
         if (key === 'help') {
-            navigate('/home')
+            navigate('/help')
         }
         setActiveItem(key)
     }

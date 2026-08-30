@@ -1,0 +1,61 @@
+.chatEmptyState {
+    border-right: 1px solid rgb(65, 65, 69);
+    flex: 1;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.chatEmptyIconCircle {
+    width: 98px;
+    height: 98px;
+    border-radius: 50%;
+    background-color: rgb(21, 22, 24);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+
+.chatEmptyIconCircle img {
+    width: 45px;
+    height: 45px;
+
+}
+
+.chatEmptyTitle {
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0 0 15px 0;
+}
+
+.chatEmptySubtitle {
+    color: rgba(113, 113, 122, 1);
+    font-size: 15px;
+    margin: 0 0 24px 0;
+}
+
+.innerBackground {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.075);
+}
+
+
+.innerBackground:hover {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+}
