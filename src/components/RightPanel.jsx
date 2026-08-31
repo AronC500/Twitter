@@ -52,7 +52,7 @@ function RightPanel({ trends, suggestions, newsItems, section }) {
     return (
         <div className="rightPanel">
             {section !== 'Explore' &&
-                <div className="searchBarContainer">
+                <div className="searchBarContainer" >
                     <div className="searchBar">
                         <img className="searchIcon" src="" alt="" />
                         <Input className="searchInput" placeholder="Search" />
@@ -61,20 +61,29 @@ function RightPanel({ trends, suggestions, newsItems, section }) {
             }
             {section === 'Profile' &&
                 <>
-                    <div className="panelCard">
-                        <h3 className="panelCardTitle">You might like</h3>
-                        {suggestions.map((element, index) => (
-                            <FollowItem key={index} {...element} />
-                        ))}
-                        <div className="showMoreLink">Show more</div>
+                    <div className="stickyGroup" style={{ top: '0px' }}>
+
+                        <div className="panelCard">
+                            <h3 className="panelCardTitle">You might like</h3>
+                            {suggestions.map((element, index) => (
+                                <FollowItem key={index} {...element} />
+                            ))}
+                            <div className="showMoreLink">Show more</div>
+                        </div>
+
+                        <div className="panelCard">
+                            <h3 className="panelCardTitle">What's happening</h3>
+                            {trends.map((element, index) => (
+                                <TrendItem key={index} {...element} />
+                            ))}
+                            <div className="showMoreLink">Show more</div>
+                        </div>
+                        <div className="panelFooter">
+                            <span>Terms</span> · <span>Privacy</span> · <span>Cookies</span> · <span>Accessibility</span><br />
+                            <span>Ads Info</span> · <span>More</span> · <span>© 2026 Aron Corp.</span>
+                        </div>
                     </div>
-                    <div className="panelCard">
-                        <h3 className="panelCardTitle">What's happening</h3>
-                        {trends.map((element, index) => (
-                            <TrendItem key={index} {...element} />
-                        ))}
-                        <div className="showMoreLink">Show more</div>
-                    </div>
+
                 </>
             }
             {section === 'Home' &&
@@ -97,25 +106,30 @@ function RightPanel({ trends, suggestions, newsItems, section }) {
                             <NewsItem key={index} {...item} />
                         ))}
                     </div>
-                    <div className="panelCard">
-                        <h3 className="panelCardTitle">What's happening</h3>
-                        {trends.map((element, index) => (
-                            <TrendItem key={index} {...element} />
-                        ))}
-                        <div className="showMoreLink">Show more</div>
+                    <div className="stickyGroup">
+                        <div className="panelCard">
+                            <h3 className="panelCardTitle">What's happening</h3>
+                            {trends.map((element, index) => (
+                                <TrendItem key={index} {...element} />
+                            ))}
+                            <div className="showMoreLink">Show more</div>
+                        </div>
+                        <div className="panelCard">
+                            <h3 className="panelCardTitle">Who to follow</h3>
+                            {suggestions.map((element, index) => (
+                                <FollowItem key={index} {...element} />
+                            ))}
+                            <div className="showMoreLink">Show more</div>
+                        </div>
+                        <div className="panelFooter">
+                            <span>Terms</span> · <span>Privacy</span> · <span>Cookies</span> · <span>Accessibility</span><br />
+                            <span>Ads Info</span> · <span>More</span> · <span>© 2026 Aron Corp.</span>
+                        </div>
                     </div>
-                    <div className="panelCard">
-                        <h3 className="panelCardTitle">Who to follow</h3>
-                        {suggestions.map((element, index) => (
-                            <FollowItem key={index} {...element} />
-                        ))}
-                        <div className="showMoreLink">Show more</div>
-                    </div>
-
                 </>
             }
             {section === 'History' &&
-                <>
+                <div className="stickyGroup">
                     <div className="panelCard">
                         <h3 className="panelCardTitle">What's happening</h3>
                         {trends.map((element, index) => (
@@ -130,37 +144,44 @@ function RightPanel({ trends, suggestions, newsItems, section }) {
                         ))}
                         <div className="showMoreLink">Show more</div>
                     </div>
-                </>
+                    <div className="panelFooter">
+                        <span>Terms</span> · <span>Privacy</span> · <span>Cookies</span> · <span>Accessibility</span><br />
+                        <span>Ads Info</span> · <span>More</span> · <span>© 2026 Aron Corp.</span>
+                    </div>
+                </div>
+
             }
             {section === 'Explore' &&
                 <>
                     <hr>
                     </hr>
-                    <div className="panelCard">
-                        <div className="panelCardHeader">
-                            <h3 className="panelCardTitle">Today's News</h3>
+
+                    <div className="stickyGroup" style={{ top: '-50px' }}>
+
+                        <div className="panelCard">
+                            <div className="panelCardHeader">
+                                <h3 className="panelCardTitle">Today's News</h3>
+                            </div>
+                            {newsItems.map((item, index) => (
+                                <NewsItem key={index} {...item} />
+                            ))}
                         </div>
-                        {newsItems.map((item, index) => (
-                            <NewsItem key={index} {...item} />
-                        ))}
+                        <div className="panelCard">
+                            <h3 className="panelCardTitle">Who to follow</h3>
+                            {suggestions.map((element, index) => (
+                                <FollowItem key={index} {...element} />
+                            ))}
+                            <div className="showMoreLink">Show more</div>
+                        </div>
+
+                        <div className="panelFooter">
+                            <span>Terms</span> · <span>Privacy</span> · <span>Cookies</span> · <span>Accessibility</span><br />
+                            <span>Ads Info</span> · <span>More</span> · <span>© 2026 Aron Corp.</span>
+                        </div>
                     </div>
-                    <div className="panelCard">
-                        <h3 className="panelCardTitle">Who to follow</h3>
-                        {suggestions.map((element, index) => (
-                            <FollowItem key={index} {...element} />
-                        ))}
-                        <div className="showMoreLink">Show more</div>
-                    </div>
+
                 </>
             }
-
-
-            <div className="panelFooter">
-                <span>Terms</span> · <span>Privacy</span> · <span>Cookies</span> · <span>Accessibility</span><br />
-                <span>Ads Info</span> · <span>More</span> · <span>© 2026 Aron Corp.</span>
-            </div>
-
-
         </div>
     )
 }
