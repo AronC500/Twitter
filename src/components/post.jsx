@@ -1,7 +1,10 @@
 import './post.css'
 import Button from './button.jsx'
+import { useState } from 'react'
 
 function Post({ avatarSrc, name, handle, verified, time, text, imageSrc }) {
+    const [ButtonImg, setButtonImg] = useState('/grayheart.png')
+
     return (
         <div className="post">
             <img className="postAvatar" src={avatarSrc} alt="" />
@@ -37,9 +40,9 @@ function Post({ avatarSrc, name, handle, verified, time, text, imageSrc }) {
                             <Button className="repostButton" img="/grayrepost.png" />
                             <div className="statNumber"></div>
                         </div>
-                        <div className="statInfo">
-                            <Button className="heartButton" img="/grayheart.png" onFo />
-                            <div className="statNumber">1</div>
+                        <div className="statInfo" onClick={() => ButtonImg === '/redfilledheart.png' ? setButtonImg('/redheart.png') : setButtonImg('/redfilledheart.png')} onMouseEnter={() => ButtonImg !== '/redfilledheart.png' ? setButtonImg('/redheart.png') : {}} onMouseLeave={() => ButtonImg !== '/redfilledheart.png' ? setButtonImg('/grayheart.png') : {}} >
+                            <Button className="heartButton" img={ButtonImg} />
+                            <div className="statNumber" style={ButtonImg === '/redheart.png' || ButtonImg === '/redfilledheart.png' ? { color: 'red' } : {}}>1</div>
                         </div>
                         <div className="statInfo">
                             <Button className="statButton" img="/graybars.png" />
