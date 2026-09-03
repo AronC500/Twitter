@@ -3,6 +3,6 @@ Planning to get a full stack twitter clone:
   - Frontend: React, Typescript, Vite
   - Backend: Express, Node.js, Typescript
   - Database: PostgresSQL
-  - Auth: JWT + bcrypt
+  - Auth: JWT + bcrypt + google auth
   - Real-time: socket.io
   - Media Storage: AWS S3
